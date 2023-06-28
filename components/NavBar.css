@@ -1,0 +1,49 @@
+.navbar {
+  	width: 100%;
+    box-shadow: 0px 10px 10px -10px #bbb;
+}
+
+.nav-over {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-under {
+    display: none;   
+  cursor:pointer;
+}
+
+.nav-item {
+  width:100%;
+  text-align: center;
+  padding: 10px 30px;
+  font-weight: 100;
+}
+
+.nav-link {
+  color: white;
+}
+
+.submenu {
+  display: none;
+}
+
+.isActive {
+    font-weight:300;
+    text-decoration: underline;
+}
+@media (max-width: 768px) {
+    .submenu {
+        display: block;
+    }
+    .nav-under {
+        display: flex;
+        color: white;
+    }
+    .nav-over {
+        display: none;
+    }
+    .sr-only {
+        color: white;
+    }
+}
