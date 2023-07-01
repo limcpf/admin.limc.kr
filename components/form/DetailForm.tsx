@@ -2,50 +2,41 @@
 
 import { DetailFormInput, DetailFormProp } from "@/types/form";
 import { FormEventHandler, ReactNode } from "react";
-import { SiteDetail } from "@/lib/classes/domain/site/SiteDetail.class";
+import DetailLabel from "./DetailLabel";
+import DetailInput from "./DetailInput";
 
 type Props = {
-  form: DetailFormProp;
   onSubmit: FormEventHandler<HTMLFormElement>;
   children?: ReactNode;
 };
 
-export default function DetailForm({ form, onSubmit, children }: Props) {
+export default function DetailForm<T>({
+  form,
+  onSubmit,
+  children,
+}: Props & {
+  form: DetailFormProp<T>;
+}) {
   const inputs = form.inputs;
-  const detail: SiteDetail = form.data as SiteDetail;
-
-  const detailKeys: string[] = Object.keys(detail);
-
-  const getValue = (id: string): string => {
-    const value = detailKeys.find((k) => k === id);
-    return value || "";
-  };
+  const detail: T = form.data;
 
   return (
     <form
       onSubmit={onSubmit}
-      className="grid grid-cols-12 sm:w-4/5 gap-2 p-3 pt-1 w-full sm:col-span-4"
+      className="grid grid-cols-12 gap-2 w-full p-3 pt-1 sm:w-4/5 sm:col-span-4"
     >
-      {inputs.map((input: DetailFormInput, idx: number) => {
+      {inputs.map((input: DetailFormInput<T>, idx: number) => {
         return (
           <div
             key={`detail-form-input-${idx}`}
             className={`col-span-12 sm:col-span-${input.col}`}
           >
-            <label
-              htmlFor={input.id}
-              className="block mb-2 text-sm font-medium text-gray-900"
-            >
-              {input.name}
-            </label>
-            <input
-              type="text"
+            <DetailLabel<T> id={input.id} name={input.name} />
+            <DetailInput<T>
+              type={input.type}
+              value={detail[input.id]}
               id={input.id}
-              name={input.id}
-              disabled={input.option?.disabled}
-              defaultValue={getValue(input.id)}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-xs sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-              //required
+              option={input.option}
             />
           </div>
         );
