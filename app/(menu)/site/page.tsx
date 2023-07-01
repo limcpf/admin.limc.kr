@@ -1,62 +1,31 @@
 import "./site.css";
-import _ from "lodash";
 import React from "react";
-import { METHODS } from "../../../lib/constants/InputType";
-import { API_URLS } from "../../../lib/constants/API";
-import { CellFormProp } from "../../../types/cellForm";
-import CellForm from "../../../components/form/CellForm";
+import { METHODS } from "@/lib/constants/InputType";
+import { API_URLS } from "@/lib/constants/API";
+import { List } from "@/lib/classes/form/List.class";
+import ListForm from "@/components/form/ListForm";
+import SiteListFormHeaders from "@/lib/form/list/SiteListFormHeaders";
+import { ListFormProp } from "@/types/form";
+import { request } from "@/lib/api/request";
+import Site from "@/lib/classes/domain/site/Site.class";
 
-const cellForm: CellFormProp = {
-  header: [
-    {
-      name: "이름",
-      id: "name",
-      col: 6,
-      type: "TEXT",
-      align: "center",
-      option: {
-        href: "/site/",
-        hrefId: "name",
-      },
-    },
-    {
-      name: "생성일시",
-      id: "createdAt",
-      col: 3,
-      type: "DATE",
-      align: "center",
-    },
-    {
-      name: "수정일시",
-      id: "updatedAt",
-      col: 3,
-      type: "DATE",
-      align: "center",
-    },
-  ],
-  data: [],
-};
 async function getData() {
-  const res = await fetch(process.env.API_SERVER_URL + API_URLS.priSite, {
-    method: METHODS.GET,
-    headers: {
-      Authorization: `Bearer ${process.env.TOKEN}`,
-    },
-  });
-
+  const res = await request(API_URLS.priSite, METHODS.GET);
   if (!res.ok) {
     throw new Error(`${res.status}`);
   }
-
   return res.json();
 }
 
 export default async function SitePage() {
   const data = await getData();
 
-  if (data) {
-    cellForm.data = data;
-  }
+  let list: List<Site> = new List<Site>(data.content as Site[], 0, 0, 0, 0);
 
-  return <CellForm form={cellForm} />;
+  let form: ListFormProp<Site> = {
+    header: SiteListFormHeaders,
+    list: list,
+  };
+
+  return <ListForm form={form} />;
 }
