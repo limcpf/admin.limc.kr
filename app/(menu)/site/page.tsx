@@ -1,6 +1,6 @@
 import "./site.css";
 import React from "react";
-import { METHODS } from "@/lib/constants/InputType";
+import {METHODS } from "@/lib/constants/InputType";
 import { API_URLS } from "@/lib/constants/API";
 import { List } from "@/lib/classes/form/List.class";
 import ListForm from "@/components/form/ListForm";
