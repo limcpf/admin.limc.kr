@@ -1,8 +1,8 @@
 "use client";
 
-import { SiteDetail } from "@/app/(menu)/site/[name]/page";
-import { DetailFormInput, DetailFormProp } from "@/types/detailForm";
+import { DetailFormInput, DetailFormProp } from "@/types/form";
 import { FormEventHandler, ReactNode } from "react";
+import {SiteDetail} from "@/lib/classes/domain/site/SiteDetail.class";
 
 type Props = {
   form: DetailFormProp;
@@ -13,6 +13,13 @@ type Props = {
 export default function DetailForm({ form, onSubmit, children }: Props) {
   const inputs = form.inputs;
   const detail: SiteDetail = form.data as SiteDetail;
+
+  const detailKeys: string[] = Object.keys(detail);
+
+  const getValue = (id:string):string => {
+    const value = detailKeys.find((k) => k === id);
+    return value || "";
+  }
 
   return (
     <form
@@ -36,7 +43,7 @@ export default function DetailForm({ form, onSubmit, children }: Props) {
               id={input.id}
               name={input.id}
               disabled={input.option?.disabled}
-              defaultValue={detail[input.id]}
+              defaultValue={getValue(input.id)}
               className="bg-gray-50 border border-gray-300 text-gray-900 text-xs sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
               //required
             />
