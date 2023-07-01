@@ -17,7 +17,7 @@ export default function DetailForm({ form, onSubmit, children }: Props) {
   return (
     <form
       onSubmit={onSubmit}
-      className="grid grid-cols-12 sm:w-4/5 gap-2 p-3 pt-1 w-full"
+      className="grid grid-cols-12 sm:w-4/5 gap-2 p-3 pt-1 w-full sm:col-span-4"
     >
       {inputs.map((input: DetailFormInput, idx: number) => {
         return (
