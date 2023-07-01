@@ -21,7 +21,6 @@ export type ListFormProp<T> = {
   list: List<T>;
 };
 
-
 /** DetailForm */
 export type DetailFormInputOption = {
   disabled?: boolean;
@@ -45,4 +44,3 @@ export type DetailFormProp = {
   data: Detail | null;
   option?: DetailFormOption;
 };
-

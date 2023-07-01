@@ -2,7 +2,7 @@
 
 import { DetailFormInput, DetailFormProp } from "@/types/form";
 import { FormEventHandler, ReactNode } from "react";
-import {SiteDetail} from "@/lib/classes/domain/site/SiteDetail.class";
+import { SiteDetail } from "@/lib/classes/domain/site/SiteDetail.class";
 
 type Props = {
   form: DetailFormProp;
@@ -16,10 +16,10 @@ export default function DetailForm({ form, onSubmit, children }: Props) {
 
   const detailKeys: string[] = Object.keys(detail);
 
-  const getValue = (id:string):string => {
+  const getValue = (id: string): string => {
     const value = detailKeys.find((k) => k === id);
     return value || "";
-  }
+  };
 
   return (
     <form

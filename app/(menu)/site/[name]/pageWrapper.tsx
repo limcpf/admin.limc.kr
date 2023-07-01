@@ -14,7 +14,6 @@ const onSubmit = (evt: FormEvent) => {
 };
 
 export default function pageWrapper({ form }: Props) {
-
   const router = useRouter();
 
   const bUrl = form.option?.backBtnUrl;

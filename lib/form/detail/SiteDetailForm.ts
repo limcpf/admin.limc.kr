@@ -1,4 +1,4 @@
-import {DetailFormProp} from "@/types/form";
+import { DetailFormProp } from "@/types/form";
 
 const detailForm: DetailFormProp = {
   inputs: [
@@ -59,7 +59,7 @@ const detailForm: DetailFormProp = {
   ],
   data: {},
   option: {
-    backBtnUrl: "/site"
+    backBtnUrl: "/site",
   },
 };
 
