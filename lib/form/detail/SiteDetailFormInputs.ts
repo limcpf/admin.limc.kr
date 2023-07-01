@@ -1,10 +1,10 @@
-import { DetailFormProp } from "@/types/form";
+import {SiteDetail} from "@/lib/classes/domain/site/SiteDetail.class";
+import { DetailFormInput, DetailFormProp } from "@/types/form";
 
-const detailForm: DetailFormProp = {
-  inputs: [
+const detailFormInputs: DetailFormInput<SiteDetail>[] = [
     {
-      name: "이름",
       id: "name",
+      name: "이름",
       col: 12,
       type: "TEXT",
       option: {
@@ -12,8 +12,8 @@ const detailForm: DetailFormProp = {
       },
     },
     {
-      name: "토픽 개수",
       id: "topicCnt",
+      name: "토픽 개수",
       col: 4,
       type: "TEXT",
       option: {
@@ -21,8 +21,8 @@ const detailForm: DetailFormProp = {
       },
     },
     {
-      name: "시리즈 개수",
       id: "seriesCnt",
+      name: "시리즈 개수",
       col: 4,
       type: "TEXT",
       option: {
@@ -30,8 +30,8 @@ const detailForm: DetailFormProp = {
       },
     },
     {
-      name: "글 개수",
       id: "postCnt",
+      name: "글 개수",
       col: 4,
       type: "TEXT",
       option: {
@@ -39,8 +39,8 @@ const detailForm: DetailFormProp = {
       },
     },
     {
-      name: "생성일시",
       id: "createdAt",
+      name: "생성일시",
       col: 12,
       type: "TEXT",
       option: {
@@ -48,19 +48,14 @@ const detailForm: DetailFormProp = {
       },
     },
     {
-      name: "수정일시",
       id: "updatedAt",
+      name: "수정일시",
       col: 12,
       type: "TEXT",
       option: {
         disabled: true,
       },
     },
-  ],
-  data: {},
-  option: {
-    backBtnUrl: "/site",
-  },
-};
+  ]
 
-export default detailForm;
+export default detailFormInputs;

@@ -24,11 +24,15 @@ export type ListFormProp<T> = {
 /** DetailForm */
 export type DetailFormInputOption = {
   disabled?: boolean;
+  min?: number;
+  max?: number;
+  required?: boolean;
+  regExp?: RegExp;
 };
 
-export type DetailFormInput = {
+export type DetailFormInput<T> = {
   name: string;
-  id: string;
+  id: keyof T;
   col: number;
   type: "TEXT";
   option?: DetailFormInputOption;
@@ -39,8 +43,8 @@ export type DetailFormOption = {
   formName?: string;
 };
 
-export type DetailFormProp = {
-  inputs: DetailFormInput[];
-  data: Detail | null;
+export type DetailFormProp<T> = {
+  data: T;
+  inputs: DetailFormInput<T>[];
   option?: DetailFormOption;
 };

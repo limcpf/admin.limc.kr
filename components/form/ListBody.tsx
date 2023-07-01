@@ -11,6 +11,12 @@ export default function ListBody<T>({
   data: T;
   index: number;
 }) {
+  const koDtf = new Intl.DateTimeFormat("ko", {
+    dateStyle: "long",
+    timeStyle: "medium",
+  });
+
+
   const divideRowBg = (i: number) =>
     i % 2 === 1
       ? "bg-gray-100 hover:bg-gray-300"
@@ -34,7 +40,7 @@ export default function ListBody<T>({
   };
 
   const getListFormBody = (h: ListFormHeader<T>, t: T) => {
-    const content = t[h.id];
+    const content = h.type === "DATE" ? koDtf.format(new Date(String(t[h.id]))) : t[h.id];
     const href = h.option?.href;
 
     if (h.option && href) {
