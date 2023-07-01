@@ -41,7 +41,7 @@ async function getData() {
     const res = await fetch(process.env.API_SERVER_URL + API_URLS.priSite, {
         method: METHODS.GET,
         headers: {
-            Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0IiwiaXNzIjoibGltY2tyIiwiaWF0IjoxNjg3OTU4MjY5LCJleHAiOjE2OTAzNTgyNjl9.zLxpjd2147W1ad4oLgJgA5y_CWRp1nmzPpN7YiqvC4s" 
+            Authorization: `Bearer ${process.env.TOKEN}`
         }
     });
 

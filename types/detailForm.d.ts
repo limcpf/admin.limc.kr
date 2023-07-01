@@ -1,3 +1,4 @@
+import {Detail} from "@/app/(menu)/site/[name]/page";
 import {FormEventHandler} from "react";
 
 export type DetailFormInputOption = {
@@ -19,6 +20,6 @@ export type DetailFormOption = {
 
 export type DetailFormProp = {
     inputs: DetailFormInput[];
-    data: Object[];
+    data: Detail;
     option?: DetailFormOption;
 }
