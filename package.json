@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@types/node": "20.3.1",
@@ -23,6 +24,7 @@
   },
   "devDependencies": {
     "@types/lodash": "^4.14.195",
+    "husky": "8.0.3",
     "rome": "12.1.3"
   }
 }
