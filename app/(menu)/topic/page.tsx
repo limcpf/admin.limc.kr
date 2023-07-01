@@ -1,3 +1,3 @@
 export default function RootTopic() {
-    return <>topic</>;
+  return <>topic</>;
 }

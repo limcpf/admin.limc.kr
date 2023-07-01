@@ -1,3 +1,3 @@
 export default function MenuTabs() {
-    return "Hello";
+  return "Hello";
 }

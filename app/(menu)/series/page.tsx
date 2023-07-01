@@ -1,3 +1,3 @@
 export default function RootSeries() {
-    return <>series</>;
+  return <>series</>;
 }
