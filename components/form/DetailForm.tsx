@@ -10,11 +10,15 @@ type Props = {
   children?: ReactNode;
 };
 
-export default function DetailForm<T>({ form, onSubmit, children }: Props & {
-  form:DetailFormProp<T>
+export default function DetailForm<T>({
+  form,
+  onSubmit,
+  children,
+}: Props & {
+  form: DetailFormProp<T>;
 }) {
   const inputs = form.inputs;
-  const detail:T = form.data;
+  const detail: T = form.data;
 
   return (
     <form
@@ -27,8 +31,13 @@ export default function DetailForm<T>({ form, onSubmit, children }: Props & {
             key={`detail-form-input-${idx}`}
             className={`col-span-12 sm:col-span-${input.col}`}
           >
-            <DetailLabel<T> id={input.id} name={input.name}/>
-            <DetailInput<T> type={input.type} value={detail[input.id]} id={input.id} option={input.option} />
+            <DetailLabel<T> id={input.id} name={input.name} />
+            <DetailInput<T>
+              type={input.type}
+              value={detail[input.id]}
+              id={input.id}
+              option={input.option}
+            />
           </div>
         );
       })}

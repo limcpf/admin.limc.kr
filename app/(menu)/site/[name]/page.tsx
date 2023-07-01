@@ -24,18 +24,26 @@ async function getData(name: string) {
 
 export default async function SiteDetailPage({ params }: Props) {
   if (!params.name) return <span>이름이 존재하지 않음</span>;
-  const {name, topicCnt, seriesCnt, postCnt, createdAt, updatedAt} = await getData(params.name) as SiteDetail;
-  const siteDetail = new SiteDetail(name, topicCnt, seriesCnt, postCnt, createdAt, updatedAt);
+  const { name, topicCnt, seriesCnt, postCnt, createdAt, updatedAt } =
+    (await getData(params.name)) as SiteDetail;
+  const siteDetail = new SiteDetail(
+    name,
+    topicCnt,
+    seriesCnt,
+    postCnt,
+    createdAt,
+    updatedAt,
+  );
 
-  const inputs:DetailFormInput<SiteDetail>[] = DetailFormInputs;
-  
-  const form:DetailFormProp<SiteDetail> = {
+  const inputs: DetailFormInput<SiteDetail>[] = DetailFormInputs;
+
+  const form: DetailFormProp<SiteDetail> = {
     inputs: inputs,
     data: siteDetail,
     option: {
-      backBtnUrl: "/site"
-    }
-  }
+      backBtnUrl: "/site",
+    },
+  };
 
   return (
     <div className="flex flex-col w-full justify-center items-center">

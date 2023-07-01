@@ -4,7 +4,7 @@ import DetailForm from "@/components/form/DetailForm";
 import { DetailFormProp } from "@/types/form";
 import { useRouter } from "next/navigation";
 import RoundButton from "@/components/btn/RoundButton";
-import {SiteDetail} from "@/lib/classes/domain/site/SiteDetail.class";
+import { SiteDetail } from "@/lib/classes/domain/site/SiteDetail.class";
 
 type Props = {
   form: DetailFormProp<SiteDetail>;
