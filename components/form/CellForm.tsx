@@ -81,15 +81,14 @@ export default function CellForm({ form }: Props) {
             grid 
             grid-cols-12 
             py-2
-            ${(i % 2 === 1)
-                  ? "bg-gray-100 hover:bg-gray-300"
-                  : "bg-white hover:bg-gray-200"
+            ${
+              i % 2 === 1
+                ? "bg-gray-100 hover:bg-gray-300"
+                : "bg-white hover:bg-gray-200"
             } 
           `;
           return (
-            <div
-              className={bodyCn}
-            >
+            <div className={bodyCn}>
               {headers.map((h: CellFormHeader, i2: number) => {
                 const key = `cell-body-${i}-${i2}`;
                 const cn = `
@@ -100,10 +99,7 @@ export default function CellForm({ form }: Props) {
                 `;
 
                 return (
-                  <div
-                    key={key}
-                    className={cn}
-                  >
+                  <div key={key} className={cn}>
                     {getCellFormBody(h, d, i2)}
                   </div>
                 );
