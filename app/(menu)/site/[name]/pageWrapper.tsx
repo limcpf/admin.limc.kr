@@ -42,7 +42,11 @@ export default function pageWrapper({ data }: Props) {
       <hr className="w-11/12 sm:w-4/5 pb-2" />
       <DetailForm<SiteDetail> form={form} onSubmit={onSubmit} />
       <hr className="w-11/12 sm:w-4/5 pb-2" />
-      <Button onClick={() => {}} text="사이트에 등록된 토픽 보기" type="ROUNDED"/>
+      <Button
+        onClick={() => {}}
+        text="사이트에 등록된 토픽 보기"
+        type="ROUNDED"
+      />
     </>
   );
 }
