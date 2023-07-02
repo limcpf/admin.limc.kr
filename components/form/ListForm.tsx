@@ -1,8 +1,11 @@
+"use client";
+
 import React from "react";
 import { ListFormProp, ListFormHeader } from "@/types/form";
 import ListHeader from "@/components/form/ListHeader";
 import ListBody from "@/components/form/ListBody";
 import { List } from "@/lib/classes/form/List.class";
+import ListFooter from "./ListFooter";
 
 export default function ListForm<T>({
   form,
@@ -13,19 +16,24 @@ export default function ListForm<T>({
   const list: List<T> = form.list;
 
   const contents: T[] = list.contents;
+  const classes = "w-full grid grid-cols-12 text-black gap-2 px-3 py-2 pb-0";
   return (
     <>
       {/* Header */}
-      <div className="grid grid-cols-12 w-full gap-2 px-3 py-2 pb-0 text-black">
+      <div className={classes}>
         {headers.map((h: ListFormHeader<T>, i: number) => (
-          <ListHeader index={i} col={h.col} text={h.name} />
+          <ListHeader key={`lh-${i}`} index={i} col={h.col} text={h.name} />
         ))}
       </div>
       {/* Body */}
-      <div className="w-full text-black grid grid-cols-12 gap-x-2 px-3 pb-0 ">
+      <div className={`${classes} gap-y-0`}>
         {contents.map((c: T, i: number) => (
-          <ListBody headers={headers} data={c} index={i} />
+          <ListBody key={`lb-${i}`} headers={headers} data={c} index={i} />
         ))}
+      </div>
+      {/* Footer */}
+      <div className={classes}>
+        <ListFooter list={list} />
       </div>
     </>
   );
