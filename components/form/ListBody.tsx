@@ -56,7 +56,7 @@ export default function ListBody<T>({
 
   return (
     <div
-      className={`col-span-full grid grid-cols-12 py-2 ${divideRowBg(index)}`}
+      className={`col-span-full grid grid-cols-12 py-3 ${divideRowBg(index)}`}
     >
       {headers.map((h: ListFormHeader<T>, i2: number) => {
         const key = `cell-body-${index}-${i2}`;

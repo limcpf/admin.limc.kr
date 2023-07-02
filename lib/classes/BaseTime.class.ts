@@ -5,7 +5,7 @@ class BaseTime {
   constructor(createdAt: string, updatedAt: string) {
     const koDtf = new Intl.DateTimeFormat("ko", {
       dateStyle: "long",
-      timeStyle: "medium",
+      timeStyle: "medium"
     });
 
     this.createdAt = koDtf.format(new Date(createdAt));

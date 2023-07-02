@@ -1,21 +1,23 @@
+import {Page} from "@/types/form";
+
 export class List<T> {
   contents: T[];
   pageSize: number;
   curPage: number;
   totalPages: number;
   totalElements: number;
+  first:boolean;
+  last:boolean;
 
   constructor(
-    contents: T[],
-    pageSize: number,
-    curPage: number,
-    totalPages: number,
-    totalElements: number,
+    page: Page<T>
   ) {
-    this.contents = contents;
-    this.pageSize = pageSize;
-    this.curPage = curPage;
-    this.totalPages = totalPages;
-    this.totalElements = totalElements;
+    this.contents = page.content;
+    this.pageSize = page.pageable.pageSize;
+    this.curPage = page.pageable.pageNumber+1;
+    this.totalPages = page.totalPages;
+    this.totalElements = page.totalElements;
+    this.first =page.first;
+    this.last = page.last;
   }
 }
