@@ -1,6 +1,7 @@
+import Site from "@/lib/classes/domain/site/Site.class";
 import { ListFormHeader } from "@/types/form";
 
-const SiteListFormHeaders: ListFormHeader[] = [
+const SiteListFormHeaders: ListFormHeader<Site>[] = [
   {
     name: "이름",
     id: "name",
