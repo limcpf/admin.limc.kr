@@ -16,8 +16,8 @@ const onSubmit = (evt: FormEvent) => {
 };
 
 export default function pageWrapper({ data }: Props) {
-  const { name, topicCnt, seriesCnt, postCnt, createdAt, updatedAt } = data
-  
+  const { name, topicCnt, seriesCnt, postCnt, createdAt, updatedAt } = data;
+
   /** 날짜 부분 포맷화를 위해 객체 재생성 */
   const siteDetail = new SiteDetail(
     name,

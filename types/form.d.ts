@@ -21,17 +21,17 @@ export type ListFormProp<T> = {
   list: List<T>;
 };
 
-export type Page<T> = {  
-    content: T[],
-    pageSize: number,
-    pageable: {
-      pageNumber: number,
-      pageSize: number,
-    },
-    totalPages: number,
-    totalElements: number,
-    first:boolean,
-    last:boolean
+export type Page<T> = {
+  content: T[];
+  pageSize: number;
+  pageable: {
+    pageNumber: number;
+    pageSize: number;
+  };
+  totalPages: number;
+  totalElements: number;
+  first: boolean;
+  last: boolean;
 };
 
 /** DetailForm */

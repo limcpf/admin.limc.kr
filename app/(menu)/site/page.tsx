@@ -8,9 +8,9 @@ import SiteListFormHeaders from "@/lib/form/list/SiteListFormHeaders";
 import { ListFormProp, Page } from "@/types/form";
 import { request } from "@/lib/api/request";
 import Site from "@/lib/classes/domain/site/Site.class";
-import {Params} from "next/dist/shared/lib/router/utils/route-matcher";
+import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 
-async function getData(page:string) {
+async function getData(page: string) {
   const res = await request(API_URLS.priSite + `?page=${page}`, METHODS.GET);
   if (!res.ok) {
     throw new Error(`${res.status}`);
@@ -18,13 +18,15 @@ async function getData(page:string) {
   return res.json();
 }
 
-export default async function SitePage({searchParams} : {
-  searchParams: Params
+export default async function SitePage({
+  searchParams,
+}: {
+  searchParams: Params;
 }) {
-  const data = await getData(searchParams.page || "1") as Page<Site>;
+  const data = (await getData(searchParams.page || "1")) as Page<Site>;
 
   let list: List<Site> = new List<Site>(data);
-  
+
   let form: ListFormProp<Site> = {
     header: SiteListFormHeaders,
     list: list,
