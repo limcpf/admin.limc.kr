@@ -7,9 +7,13 @@ class BaseTime {
       dateStyle: "long",
       timeStyle: "medium",
     });
-
-    this.createdAt = koDtf.format(new Date(createdAt));
-    this.updatedAt = koDtf.format(new Date(updatedAt));
+    try {
+      this.createdAt = koDtf.format(new Date(createdAt));
+      this.updatedAt = koDtf.format(new Date(updatedAt));
+    } catch (e) {
+      this.createdAt = koDtf.format(new Date());
+      this.updatedAt = koDtf.format(new Date());
+    }
   }
 }
 

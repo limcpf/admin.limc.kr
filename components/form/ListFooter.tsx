@@ -57,7 +57,7 @@ export default function ListFooter({
           </div>
           <button
             type="submit"
-            className="col-span-4 border border-gray-700 p-2.5 text-sm bg-gray-700 text-white rounded-e-lg focus:bg-gray-800"
+            className="col-span-4 border border-gray-300 bg-white p-2.5 text-sm  text-gray-700 rounded-e-lg hover:bg-gray-100 active:bg-gray-200 border-l-0"
           >
             이동
           </button>

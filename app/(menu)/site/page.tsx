@@ -2,13 +2,11 @@ import "./site.css";
 import React from "react";
 import { METHODS } from "@/lib/constants/InputType";
 import { API_URLS } from "@/lib/constants/API";
-import { List } from "@/lib/classes/form/List.class";
-import ListForm from "@/components/form/ListForm";
-import SiteListFormHeaders from "@/lib/form/list/SiteListFormHeaders";
-import { ListFormProp, Page } from "@/types/form";
+import { Page } from "@/types/form";
 import { request } from "@/lib/api/request";
 import Site from "@/lib/classes/domain/site/Site.class";
 import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
+import SitePageWrapper from "./pageWrapper";
 
 async function getData(page: string) {
   const res = await request(API_URLS.priSite + `?page=${page}`, METHODS.GET);
@@ -25,12 +23,5 @@ export default async function SitePage({
 }) {
   const data = (await getData(searchParams.page || "1")) as Page<Site>;
 
-  let list: List<Site> = new List<Site>(data);
-
-  let form: ListFormProp<Site> = {
-    header: SiteListFormHeaders,
-    list: list,
-  };
-
-  return <ListForm form={form} />;
+  return <SitePageWrapper data={data} />;
 }
