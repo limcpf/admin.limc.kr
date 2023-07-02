@@ -2,7 +2,7 @@
 import React, { FormEvent } from "react";
 import DetailForm from "@/components/form/DetailForm";
 import { DetailFormProp } from "@/types/form";
-import RoundButton from "@/components/btn/RoundButton";
+import Button from "@/components/btn/Button";
 import { SiteDetail } from "@/lib/classes/domain/site/SiteDetail.class";
 import detailFormInputs from "@/lib/form/detail/SiteDetailFormInputs";
 import PageWrapperHeader from "./pageWrapperHeader";
@@ -42,7 +42,7 @@ export default function pageWrapper({ data }: Props) {
       <hr className="w-11/12 sm:w-4/5 pb-2" />
       <DetailForm<SiteDetail> form={form} onSubmit={onSubmit} />
       <hr className="w-11/12 sm:w-4/5 pb-2" />
-      <RoundButton onClick={() => {}} text="사이트에 등록된 토픽 보기" />
+      <Button onClick={() => {}} text="사이트에 등록된 토픽 보기" type="ROUNDED"/>
     </>
   );
 }

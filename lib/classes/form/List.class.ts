@@ -19,3 +19,4 @@ export class List<T> {
     this.last = page.last;
   }
 }
+export default List;
