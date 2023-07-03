@@ -3,8 +3,8 @@ class BaseTime {
   updatedAt: string = new Date().toString();
 
   constructor(createdAt?: string, updatedAt?: string) {
-    if(createdAt) this.createdAt = createdAt;
-    if(updatedAt) this.updatedAt = updatedAt;
+    if (createdAt) this.createdAt = createdAt;
+    if (updatedAt) this.updatedAt = updatedAt;
   }
 }
 

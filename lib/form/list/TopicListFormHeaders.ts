@@ -17,8 +17,8 @@ const TopicListFormHeaders: ListFormHeaderProp<Topic>[] = [
     align: "center",
     option: {
       href: "/site/",
-      hrefId: "site"
-    }
+      hrefId: "site",
+    },
   },
   {
     name: "이름",

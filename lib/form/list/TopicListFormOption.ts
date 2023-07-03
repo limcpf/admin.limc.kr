@@ -1,7 +1,7 @@
-import {ListFormOption} from "@/types/form";
+import { ListFormOption } from "@/types/form";
 
 const TopicListFormOption: ListFormOption = {
-  addPageHref: "/topic/add"
-}
+  addPageHref: "/topic/add",
+};
 
-export default TopicListFormOption
+export default TopicListFormOption;

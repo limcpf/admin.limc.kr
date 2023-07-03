@@ -15,13 +15,13 @@ export type ListFormHeaderProp<T> = {
 };
 
 export type ListFormOption = {
-  addPageHref:string
-}
+  addPageHref: string;
+};
 
 export type ListFormProp<T> = {
   header: ListFormHeaderProp[];
   list: List<T>;
-  option: ListFormOption
+  option: ListFormOption;
 };
 
 export type Page<T> = {
@@ -41,7 +41,7 @@ export type Page<T> = {
 export type DetailSelectData = {
   key: string;
   value: string;
-}
+};
 export type DetailFormInputOption = {
   disabled?: boolean;
   min?: number;
@@ -49,7 +49,7 @@ export type DetailFormInputOption = {
   required?: boolean;
   regExp?: RegExp;
   selectDataId?: string;
-}
+};
 export type DetailFormInputType = "TEXT" | "SELECT" | "NUMBER";
 
 export type DetailFormInput<T> = {
@@ -62,7 +62,7 @@ export type DetailFormInput<T> = {
 export type DetailFormOption = {
   backBtnUrl?: string;
   formName?: string;
-  selectData?: {[key:string]: DetailSelectData[]}
+  selectData?: { [key: string]: DetailSelectData[] };
 };
 
 export type DetailFormProp<T> = {

@@ -25,9 +25,11 @@ export default async function SitePage({
 }) {
   const data = (await getData(searchParams.page || "1")) as Page<Site>;
 
-  return <ListPageWrapper
+  return (
+    <ListPageWrapper
       data={data}
       header={SiteListFormHeaders}
       option={siteListFormOption}
-  />;
+    />
+  );
 }

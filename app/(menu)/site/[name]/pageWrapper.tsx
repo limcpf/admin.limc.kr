@@ -30,7 +30,7 @@ export default function pageWrapper({ data }: Props) {
 
   const form: DetailFormProp<SiteDetail> = {
     inputs: detailFormInputs,
-    data: siteDetail
+    data: siteDetail,
   };
 
   return (

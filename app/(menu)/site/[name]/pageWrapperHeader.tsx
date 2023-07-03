@@ -6,7 +6,7 @@ import { DetailFormOption } from "@/types/form";
 import Button from "@/components/btn/Button";
 
 export default function PageWrapperHeader({
-  option
+  option,
 }: {
   option?: DetailFormOption;
 }) {

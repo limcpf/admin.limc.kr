@@ -1,18 +1,22 @@
 import React from "react";
-import { DetailFormInputOption, DetailFormInputType, DetailSelectData } from "@/types/form";
+import {
+  DetailFormInputOption,
+  DetailFormInputType,
+  DetailSelectData,
+} from "@/types/form";
 
 export default function DetailInput<T>({
   type,
   value,
   id,
   option = {},
-  selectData
+  selectData,
 }: {
   type: DetailFormInputType;
   value: T[keyof T];
   id: keyof T;
   option?: DetailFormInputOption;
-  selectData?: { [key: string]: DetailSelectData[]; }  | undefined
+  selectData?: { [key: string]: DetailSelectData[] } | undefined;
 }) {
   const idStr = String(id);
   const className =
@@ -45,19 +49,28 @@ export default function DetailInput<T>({
     />
   );
   // selectData 받아서 하는걸로 만들어야햄
-  const selectInput = (
-    selectData: { [key: string]: DetailSelectData[]; }
-  ) => {
-    const id = option && option.selectDataId ? option.selectDataId : ""
-    const data = selectData[id]; 
-    return (<select id={idStr} name={idStr} className={className} required={option.required} disabled={option.disabled} defaultValue="">
-      {
-        data.map(({key, value}: DetailSelectData, i:number) => <option key={idStr+i} value={`${value}`}>{key}</option>)
-      }
-    </select> )
-  }
+  const selectInput = (selectData: { [key: string]: DetailSelectData[] }) => {
+    const id = option && option.selectDataId ? option.selectDataId : "";
+    const data = selectData[id];
+    return (
+      <select
+        id={idStr}
+        name={idStr}
+        className={className}
+        required={option.required}
+        disabled={option.disabled}
+        defaultValue=""
+      >
+        {data.map(({ key, value }: DetailSelectData, i: number) => (
+          <option key={idStr + i} value={`${value}`}>
+            {key}
+          </option>
+        ))}
+      </select>
+    );
+  };
 
-  if(type === "TEXT") return textInput;
-  else if(type === "SELECT" && selectData) return selectInput(selectData); 
+  if (type === "TEXT") return textInput;
+  else if (type === "SELECT" && selectData) return selectInput(selectData);
   else return numberInput;
 }

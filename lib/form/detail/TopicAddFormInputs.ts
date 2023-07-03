@@ -1,5 +1,5 @@
 import Topic from "@/lib/classes/domain/topic/Topic.class";
-import {DetailFormInput} from "@/types/form";
+import { DetailFormInput } from "@/types/form";
 
 const topicAddFormInputs: DetailFormInput<Topic>[] = [
   {
@@ -9,8 +9,8 @@ const topicAddFormInputs: DetailFormInput<Topic>[] = [
     type: "SELECT",
     option: {
       required: true,
-      selectDataId: "siteList"
-    }
+      selectDataId: "siteList",
+    },
   },
   {
     id: "name",
@@ -18,11 +18,11 @@ const topicAddFormInputs: DetailFormInput<Topic>[] = [
     col: 12,
     type: "TEXT",
     option: {
-      min:1,
-      max:255,
-      required: true
-    }
-  }
-]
+      min: 1,
+      max: 255,
+      required: true,
+    },
+  },
+];
 
 export default topicAddFormInputs;

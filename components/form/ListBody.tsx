@@ -34,8 +34,8 @@ export default function ListBody<T>({
   };
 
   const getListFormBody = (h: ListFormHeaderProp<T>, t: T) => {
-    let content:T[keyof T] | string = t[h.id];
-    if(h.type === "DATE" && typeof content === "string") {
+    let content: T[keyof T] | string = t[h.id];
+    if (h.type === "DATE" && typeof content === "string") {
       const koDtf = new Intl.DateTimeFormat("ko", {
         dateStyle: "short",
         timeStyle: "short",
