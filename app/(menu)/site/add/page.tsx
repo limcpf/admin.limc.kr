@@ -1,14 +1,14 @@
 "use client";
+import React from "react";
 import Button from "@/components/btn/Button";
 import DetailForm from "@/components/form/DetailForm";
-import { frontRequest, request } from "@/lib/api/request";
+import { request } from "@/lib/api/request";
 import Site from "@/lib/classes/domain/site/Site.class";
 import { API_URLS } from "@/lib/constants/API";
 import { METHODS } from "@/lib/constants/InputType";
 import siteAddFormInputs from "@/lib/form/detail/SiteAddFormInputs";
 import { DetailFormProp } from "@/types/form";
 import { useRouter } from "next/navigation";
-import React, { FormEvent } from "react";
 import PageWrapperHeader from "../[name]/pageWrapperHeader";
 
 export default function SiteAddPage() {
@@ -32,12 +32,9 @@ export default function SiteAddPage() {
       payload[t.id] = t.value;
     }
 
-    console.log(`payload 전송 : ${payload}`);
-
     request(API_URLS.priSite, METHODS.POST, payload)
       .then((data) => data.json())
       .then((data) => {
-        console.log(data);
         alert("전송 성공!");
         router.push(`/site/${data.name}`);
       })

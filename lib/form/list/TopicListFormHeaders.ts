@@ -1,7 +1,7 @@
 import Topic from "@/lib/classes/domain/topic/Topic.class";
-import { ListFormHeader } from "@/types/form";
+import { ListFormHeaderProp } from "@/types/form";
 
-const TopicListFormheaders: ListFormHeader<Topic>[] = [
+const TopicListFormHeaders: ListFormHeaderProp<Topic>[] = [
   {
     name: "아이디",
     id: "id",
@@ -11,14 +11,14 @@ const TopicListFormheaders: ListFormHeader<Topic>[] = [
   },
   {
     name: "사이트",
-    id: "id",
+    id: "site",
     col: 2,
     type: "TEXT",
     align: "center",
     option: {
       href: "/site/",
-      hrefId: "site",
-    },
+      hrefId: "site"
+    }
   },
   {
     name: "이름",
@@ -40,4 +40,4 @@ const TopicListFormheaders: ListFormHeader<Topic>[] = [
   },
 ];
 
-export default TopicListFormheaders;
+export default TopicListFormHeaders;

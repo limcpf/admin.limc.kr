@@ -1,17 +1,31 @@
+import Button from "@/components/btn/Button";
+import {ListFormOption} from "@/types/form";
+import {useRouter} from "next/navigation";
+import List from "@/lib/classes/form/List.class";
 import React from "react";
 
-type Props = {
-  index: number;
-  col: number;
-  text: string;
-};
-
-export default function ListHeader({ index, col, text }: Props) {
-  const key = `cell-from-header-${index}`;
-  const className = `cell-form-header text-center col-span-${col} font-light text-xs border-b-2 pb-1`;
+export default function ListHeader<T>({list, option}:{
+  list: List<T>;
+  option: ListFormOption;
+}) {
+  const router = useRouter()
   return (
-    <div key={key} className={className}>
-      {text}
-    </div>
-  );
+      <div className="w-full flex justify-between mb-3">
+        <div className="text-xs text-gray-300 flex items-center">
+          {list.pageSize}개 기준 {list.curPage}번째 페이지, 총 {list.totalElements}개
+        </div>
+        <div>
+          <Button
+              onClick={() => router.refresh()}
+              text="↺"
+              type="ROUNDED"
+          />
+          <Button
+              onClick={() => router.push(option.addPageHref)}
+              text="+"
+              type="ROUNDED"
+          />
+        </div>
+      </div>
+  )
 }

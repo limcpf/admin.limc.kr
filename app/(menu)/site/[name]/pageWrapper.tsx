@@ -30,10 +30,7 @@ export default function pageWrapper({ data }: Props) {
 
   const form: DetailFormProp<SiteDetail> = {
     inputs: detailFormInputs,
-    data: siteDetail,
-    option: {
-      backBtnUrl: "/site",
-    },
+    data: siteDetail
   };
 
   return (

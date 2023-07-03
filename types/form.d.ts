@@ -1,5 +1,3 @@
-import Detail from "@/lib/classes/Detail.class";
-
 /** ListForm */
 export type ListFormHeaderOption<T> = {
   disabled?: boolean;
@@ -7,7 +5,7 @@ export type ListFormHeaderOption<T> = {
   hrefId?: keyof T;
 };
 
-export type ListFormHeader<T> = {
+export type ListFormHeaderProp<T> = {
   name: string;
   id: keyof T;
   col: number;
@@ -16,14 +14,18 @@ export type ListFormHeader<T> = {
   option?: ListFormHeaderOption<T>;
 };
 
+export type ListFormOption = {
+  addPageHref:string
+}
+
 export type ListFormProp<T> = {
-  header: ListFormHeader[];
+  header: ListFormHeaderProp[];
   list: List<T>;
+  option: ListFormOption
 };
 
 export type Page<T> = {
   content: T[];
-  pageSize: number;
   pageable: {
     pageNumber: number;
     pageSize: number;
@@ -35,25 +37,32 @@ export type Page<T> = {
 };
 
 /** DetailForm */
+
+export type DetailSelectData = {
+  key: string;
+  value: string;
+}
 export type DetailFormInputOption = {
   disabled?: boolean;
   min?: number;
   max?: number;
   required?: boolean;
   regExp?: RegExp;
-};
+  selectDataId?: string;
+}
+export type DetailFormInputType = "TEXT" | "SELECT" | "NUMBER";
 
 export type DetailFormInput<T> = {
   name: string;
   id: keyof T;
   col: number;
-  type: "TEXT";
+  type: DetailFormInputType;
   option?: DetailFormInputOption;
 };
-
 export type DetailFormOption = {
   backBtnUrl?: string;
   formName?: string;
+  selectData?: {[key:string]: DetailSelectData[]}
 };
 
 export type DetailFormProp<T> = {

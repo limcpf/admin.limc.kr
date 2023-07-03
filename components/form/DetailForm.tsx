@@ -37,6 +37,7 @@ export default function DetailForm<T>({
               value={detail[input.id]}
               id={input.id}
               option={input.option}
+              selectData={form.option?.selectData}
             />
           </div>
         );

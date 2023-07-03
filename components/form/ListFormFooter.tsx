@@ -1,9 +1,9 @@
 "use client";
-import React, { FormEvent, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { List } from "@/lib/classes/form/List.class";
 import { useRouter } from "next/navigation";
 
-export default function ListFooter({
+export default function ListFormFooter({
   list,
 }: {
   list: List<any>;
@@ -15,7 +15,7 @@ export default function ListFooter({
   }, [list.curPage]);
   const router = useRouter();
 
-  const su = (evt: any) => {
+  const onSubmit = (evt: any) => {
     evt.preventDefault();
 
     let curPage = String(list.curPage);
@@ -35,13 +35,13 @@ export default function ListFooter({
       <div
         className={`${
           list.first && "hidden"
-        } col-start-1 col-end-2 sm:col-start-4 sm:col-end-5 ${pageBtnClass} justify-end`}
+        } col-start-1 col-end-2 sm:col-start-3 sm:col-end-4 ${pageBtnClass} justify-end`}
         onClick={() => router.push(`?page=${list.curPage - 1}`)}
       >
         {`⬅`}
       </div>
-      <div className="col-start-2 col-end-12  sm:col-start-5 sm:col-end-8 flex justify-center items-center my-3">
-        <form onSubmit={su} className={"w-5/6 grid grid-cols-12"}>
+      <div className="col-start-2 col-end-12  sm:col-start-4 sm:col-end-9 flex justify-center items-center my-3">
+        <form onSubmit={onSubmit} className={"w-5/6 grid grid-cols-12"}>
           <div className="relative col-span-8 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-s-lg">
             <input
               id="page"
@@ -66,7 +66,7 @@ export default function ListFooter({
       <div
         className={`${
           list.last && "hidden"
-        } col-start-12 col-end-13 sm:col-start-8 sm:col-end-9 ${pageBtnClass} justify-start`}
+        } col-start-12 col-end-13 sm:col-start-9 sm:col-end-10 ${pageBtnClass} justify-start`}
         onClick={() => router.push(`?page=${list.curPage + 1}`)}
       >
         {`➡`}
