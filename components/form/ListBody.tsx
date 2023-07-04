@@ -1,6 +1,7 @@
 import React from "react";
 import { ListFormHeaderProp } from "@/types/form";
 import Link from "next/link";
+import DateUtil from "@/lib/util/Date.util";
 
 export default function ListBody<T>({
   headers,
@@ -36,11 +37,7 @@ export default function ListBody<T>({
   const getListFormBody = (h: ListFormHeaderProp<T>, t: T) => {
     let content: T[keyof T] | string = t[h.id];
     if (h.type === "DATE" && typeof content === "string") {
-      const koDtf = new Intl.DateTimeFormat("ko", {
-        dateStyle: "short",
-        timeStyle: "short",
-      });
-      content = koDtf.format(new Date(content));
+      content = DateUtil.getInstance().date2Kr(content);
     }
     const href = h.option?.href;
 

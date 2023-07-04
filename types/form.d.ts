@@ -50,7 +50,7 @@ export type DetailFormInputOption = {
   regExp?: RegExp;
   selectDataId?: string;
 };
-export type DetailFormInputType = "TEXT" | "SELECT" | "NUMBER";
+export type DetailFormInputType = "TEXT" | "SELECT" | "NUMBER" | "DATE";
 
 export type DetailFormInput<T> = {
   name: string;
@@ -63,6 +63,24 @@ export type DetailFormOption = {
   backBtnUrl?: string;
   formName?: string;
   selectData?: { [key: string]: DetailSelectData[] };
+};
+
+export type AddDetailFormOption<T> = DetailFormOption & {
+  pk: keyof T;
+  apiHref: string;
+  successHref: string;
+};
+export type AddDetailFormProp<T> = Omit<DetailFormProp<T>, "option"> & {
+  option: AddDetailFormOption<T>;
+};
+
+export type UpdateDetailFormOption<T> = Omit<
+  AddDetailFormOption<T>,
+  "successHref"
+>;
+
+export type UpdateDetailFormProp<T> = Omit<DetailFormProp<T>, "option"> & {
+  option: UpdateDetailFormOption<T>;
 };
 
 export type DetailFormProp<T> = {

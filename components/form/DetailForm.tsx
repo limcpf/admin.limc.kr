@@ -1,6 +1,6 @@
 "use client";
 
-import { DetailFormInput, DetailFormProp } from "@/types/form";
+import { DetailFormInput, UpdateDetailFormProp } from "@/types/form";
 import { FormEventHandler, ReactNode } from "react";
 import DetailLabel from "./DetailLabel";
 import DetailInput from "./DetailInput";
@@ -15,7 +15,7 @@ export default function DetailForm<T>({
   onSubmit,
   children,
 }: Props & {
-  form: DetailFormProp<T>;
+  form: UpdateDetailFormProp<T>;
 }) {
   const inputs = form.inputs;
   const detail: T = form.data;

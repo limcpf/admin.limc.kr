@@ -1,29 +1,41 @@
-import { SiteDetail } from "@/lib/classes/domain/site/SiteDetail.class";
 import { DetailFormInput } from "@/types/form";
+import { TopicDetail } from "@/lib/classes/domain/topic/TopicDetail.class";
 
-const detailFormInputs: DetailFormInput<SiteDetail>[] = [
+const TopicUpdateFormInputs: DetailFormInput<TopicDetail>[] = [
   {
-    id: "name",
-    name: "이름",
-    col: 12,
+    id: "id",
+    name: "ID",
+    col: 6,
     type: "TEXT",
     option: {
       disabled: true,
     },
   },
   {
-    id: "topicCnt",
-    name: "토픽 개수",
-    col: 4,
-    type: "NUMBER",
+    id: "site",
+    name: "사이트",
+    col: 6,
+    type: "SELECT",
     option: {
-      disabled: true,
+      required: true,
+      selectDataId: "siteList",
+    },
+  },
+  {
+    id: "name",
+    name: "이름",
+    col: 12,
+    type: "TEXT",
+    option: {
+      min: 1,
+      max: 255,
+      required: true,
     },
   },
   {
     id: "seriesCnt",
     name: "시리즈 개수",
-    col: 4,
+    col: 6,
     type: "NUMBER",
     option: {
       disabled: true,
@@ -32,7 +44,7 @@ const detailFormInputs: DetailFormInput<SiteDetail>[] = [
   {
     id: "postCnt",
     name: "글 개수",
-    col: 4,
+    col: 6,
     type: "NUMBER",
     option: {
       disabled: true,
@@ -41,7 +53,7 @@ const detailFormInputs: DetailFormInput<SiteDetail>[] = [
   {
     id: "createdAt",
     name: "생성일시",
-    col: 12,
+    col: 6,
     type: "DATE",
     option: {
       disabled: true,
@@ -50,7 +62,7 @@ const detailFormInputs: DetailFormInput<SiteDetail>[] = [
   {
     id: "updatedAt",
     name: "수정일시",
-    col: 12,
+    col: 6,
     type: "DATE",
     option: {
       disabled: true,
@@ -58,4 +70,4 @@ const detailFormInputs: DetailFormInput<SiteDetail>[] = [
   },
 ];
 
-export default detailFormInputs;
+export default TopicUpdateFormInputs;

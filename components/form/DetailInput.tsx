@@ -4,6 +4,7 @@ import {
   DetailFormInputType,
   DetailSelectData,
 } from "@/types/form";
+import DateUtil from "@/lib/util/Date.util";
 
 export default function DetailInput<T>({
   type,
@@ -13,14 +14,16 @@ export default function DetailInput<T>({
   selectData,
 }: {
   type: DetailFormInputType;
-  value: T[keyof T];
+  value?: T[keyof T];
   id: keyof T;
   option?: DetailFormInputOption;
   selectData?: { [key: string]: DetailSelectData[] } | undefined;
 }) {
   const idStr = String(id);
+  const dateUtil: DateUtil = DateUtil.getInstance();
   const className =
     "block w-full p-2.5 bg-gray-50 border border-gray-300 text-gray-900 text-xs sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ";
+
   const textInput = (
     <input
       type="text"
@@ -28,7 +31,9 @@ export default function DetailInput<T>({
       name={idStr}
       className={className}
       disabled={option.disabled}
-      defaultValue={String(value)}
+      defaultValue={
+        type === "DATE" ? dateUtil.date2Kr(String(value)) : String(value || "")
+      }
       required={option.required}
       maxLength={option.max}
       minLength={option.min}
@@ -42,7 +47,7 @@ export default function DetailInput<T>({
       name={idStr}
       className={className}
       disabled={option.disabled}
-      defaultValue={Number(value)}
+      defaultValue={Number(value || 0)}
       required={option.required}
       maxLength={option.max}
       minLength={option.min}
@@ -59,7 +64,7 @@ export default function DetailInput<T>({
         className={className}
         required={option.required}
         disabled={option.disabled}
-        defaultValue=""
+        defaultValue={String(value) || ""}
       >
         {data.map(({ key, value }: DetailSelectData, i: number) => (
           <option key={idStr + i} value={`${value}`}>
@@ -70,7 +75,7 @@ export default function DetailInput<T>({
     );
   };
 
-  if (type === "TEXT") return textInput;
+  if (type === "TEXT" || type === "DATE") return textInput;
   else if (type === "SELECT" && selectData) return selectInput(selectData);
   else return numberInput;
 }

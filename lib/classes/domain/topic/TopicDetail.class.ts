@@ -1,21 +1,24 @@
 import BaseTime from "@/lib/classes/BaseTime.class";
 
-export class SiteDetail extends BaseTime {
+export class TopicDetail extends BaseTime {
+  id: string;
   name: string;
-  topicCnt: number;
+  site: string;
   seriesCnt: number;
   postCnt: number;
   constructor(
+    id: string,
     name: string,
-    topicCnt: number,
+    site: string,
     seriesCnt: number,
     postCnt: number,
     createdAt: string,
     updatedAt: string,
   ) {
     super(createdAt, updatedAt);
+    this.id = id;
     this.name = name;
-    this.topicCnt = topicCnt;
+    this.site = site;
     this.seriesCnt = seriesCnt;
     this.postCnt = postCnt;
   }
