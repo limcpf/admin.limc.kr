@@ -1,4 +1,4 @@
-import {METHOD} from "@/lib/constants/InputType";
+import { METHOD } from "@/lib/constants/InputType";
 
 export const request = (url: string, method: METHOD, payload?: any) =>
   fetch(`${process.env.API_SERVER_URL || "/api"}${url}`, {

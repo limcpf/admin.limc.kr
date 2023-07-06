@@ -1,22 +1,26 @@
 "use client";
 
-import {DetailFormInput, JsonObject, UpdateDetailFormOption, UpdateDetailFormProp,} from "@/types/form";
+import {
+  DetailFormInput,
+  JsonObject,
+  UpdateDetailFormOption,
+  UpdateDetailFormProp,
+} from "@/types/form";
 import UpdateDetailForm from "@/components/form/detail/update/UpdateDetailForm";
-import {FormEventHandler} from "react";
-import {getJsonObjectFromForm} from "@/lib/util/Submit.util";
-import {useRouter} from "next/navigation";
-
+import { FormEventHandler } from "react";
+import { getJsonObjectFromForm } from "@/lib/util/Submit.util";
+import { useRouter } from "next/navigation";
 
 export default function UpdateDetailPageWrapper<T>({
   data,
   inputs,
   option,
-  func
+  func,
 }: {
   data: T;
   inputs: DetailFormInput<T>[];
   option: UpdateDetailFormOption<T>;
-  func?: (payload:JsonObject) => Promise<any>;
+  func?: (payload: JsonObject) => Promise<any>;
 }) {
   const router = useRouter();
   const form: UpdateDetailFormProp<T> = {
@@ -27,26 +31,26 @@ export default function UpdateDetailPageWrapper<T>({
   const onSubmit: FormEventHandler<HTMLFormElement> = (evt) => {
     evt.preventDefault();
 
-    if(!func) return;
+    if (!func) return;
 
     const obj = getJsonObjectFromForm(evt);
 
     func(obj)
-    .then(() => {
-      alert("수정 성공");
-      router.refresh();
-    })
-    .catch((e:Error) => {
-      alert(e.message);
-    })
-  }
+      .then(() => {
+        alert("수정 성공");
+        router.refresh();
+      })
+      .catch((e: Error) => {
+        alert(e.message);
+      });
+  };
 
   return (
-      <UpdateDetailForm<T>
-            data={form.data}
-            inputs={form.inputs}
-            option={form.option}
-            onSubmit={onSubmit}
-      />
-  )
+    <UpdateDetailForm<T>
+      data={form.data}
+      inputs={form.inputs}
+      option={form.option}
+      onSubmit={onSubmit}
+    />
+  );
 }

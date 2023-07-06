@@ -1,7 +1,7 @@
 "use client";
-import React, {useEffect, useState} from "react";
-import {List} from "@/lib/classes/form/List.class";
-import {useRouter} from "next/navigation";
+import React, { useEffect, useState } from "react";
+import { List } from "@/lib/classes/form/List.class";
+import { useRouter } from "next/navigation";
 
 export default function ListFormFooter<T>({
   list,

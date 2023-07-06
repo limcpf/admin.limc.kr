@@ -1,11 +1,11 @@
 import "./site.css";
 import React from "react";
-import {METHODS} from "@/lib/constants/InputType";
-import {API_URLS} from "@/lib/constants/API";
-import {Page} from "@/types/form";
-import {request} from "@/lib/api/request";
+import { METHODS } from "@/lib/constants/InputType";
+import { API_URLS } from "@/lib/constants/API";
+import { Page } from "@/types/form";
+import { request } from "@/lib/api/request";
 import Site from "@/lib/classes/domain/site/Site.class";
-import {Params} from "next/dist/shared/lib/router/utils/route-matcher";
+import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 import ListPageWrapper from "@/components/form/list/page/ListPageWrapper";
 import SiteListFormHeaders from "@/lib/form/site/list/SiteListFormHeaders";
 import siteListFormOption from "@/lib/form/site/list/SiteListFormOption";

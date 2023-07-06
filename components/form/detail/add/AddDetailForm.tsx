@@ -1,10 +1,14 @@
 "use client";
 import React from "react";
 import DetailForm from "@/components/form/detail/DetailForm";
-import {request} from "@/lib/api/request";
-import {METHODS} from "@/lib/constants/InputType";
-import {AddDetailFormOption, AddDetailFormProp, DetailFormInput,} from "@/types/form";
-import {useRouter} from "next/navigation";
+import { request } from "@/lib/api/request";
+import { METHODS } from "@/lib/constants/InputType";
+import {
+  AddDetailFormOption,
+  AddDetailFormProp,
+  DetailFormInput,
+} from "@/types/form";
+import { useRouter } from "next/navigation";
 import AddDetailPageWrapper from "@/components/form/detail/add/AddDetailPageWrapper";
 
 export default function AddDetailForm<T>({
@@ -52,10 +56,10 @@ export default function AddDetailForm<T>({
       <AddDetailPageWrapper option={form.option} />
       <hr className="w-11/12 sm:w-4/5 pb-2" />
       <DetailForm
-          onSubmit={onSubmit}
-          data={form.data}
-          inputs={form.inputs}
-          selectData={form.option.selectData}
+        onSubmit={onSubmit}
+        data={form.data}
+        inputs={form.inputs}
+        selectData={form.option.selectData}
       />
     </div>
   );

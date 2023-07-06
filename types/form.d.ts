@@ -91,5 +91,5 @@ export type DetailFormProp<T> = {
 
 /** etc */
 export interface JsonObject {
-  [key:string]: string
+  [key: string]: string;
 }

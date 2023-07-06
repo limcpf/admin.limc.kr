@@ -1,8 +1,8 @@
 "use client";
 
 import React from "react";
-import {useRouter} from "next/navigation";
-import {DetailFormOption} from "@/types/form";
+import { useRouter } from "next/navigation";
+import { DetailFormOption } from "@/types/form";
 import Button from "@/components/btn/Button";
 
 export default function AddDetailPageWrapper({

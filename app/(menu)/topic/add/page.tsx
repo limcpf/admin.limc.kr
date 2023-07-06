@@ -1,7 +1,7 @@
-import {request} from "@/lib/api/request";
-import {API_URLS} from "@/lib/constants/API";
-import {METHODS} from "@/lib/constants/InputType";
-import {AddDetailFormOption} from "@/types/form";
+import { request } from "@/lib/api/request";
+import { API_URLS } from "@/lib/constants/API";
+import { METHODS } from "@/lib/constants/InputType";
+import { AddDetailFormOption } from "@/types/form";
 import AddDetailForm from "@/components/form/detail/add/AddDetailForm";
 import Topic from "@/lib/classes/domain/topic/Topic.class";
 import TopicAddFormInputs from "@/lib/form/topic/detail/TopicAddFormInputs";

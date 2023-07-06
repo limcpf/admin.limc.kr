@@ -1,7 +1,7 @@
 "use client";
 
-import {DetailFormInput, DetailSelectData} from "@/types/form";
-import React, {FormEventHandler} from "react";
+import { DetailFormInput, DetailSelectData } from "@/types/form";
+import React, { FormEventHandler } from "react";
 import DetailLabel from "./DetailLabel";
 import DetailInput from "./DetailInput";
 import Button from "@/components/btn/Button";
@@ -11,14 +11,14 @@ type Props = {
 };
 
 export default function DetailForm<T>({
-    data,
-    inputs,
+  data,
+  inputs,
   onSubmit,
-    selectData
+  selectData,
 }: Props & {
   data: T;
   inputs: DetailFormInput<T>[];
-  selectData?: { [key: string]: DetailSelectData[] }
+  selectData?: { [key: string]: DetailSelectData[] };
 }) {
   return (
     <form
@@ -42,17 +42,17 @@ export default function DetailForm<T>({
           </div>
         );
       })}
-      {onSubmit
-        && (<div className="col-span-full grid grid-cols-12 my-3">
+      {onSubmit && (
+        <div className="col-span-full grid grid-cols-12 my-3">
           <Button
-              isSubmit={true}
-              className="col-start-6 col-end-8"
-              text="수정"
-              type="ROUNDED"
-              onClick={() => {}}
+            isSubmit={true}
+            className="col-start-6 col-end-8"
+            text="수정"
+            type="ROUNDED"
+            onClick={() => {}}
           />
-        </div>)
-      }
+        </div>
+      )}
     </form>
   );
 }

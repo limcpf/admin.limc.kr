@@ -1,10 +1,10 @@
 "use client";
 
 import React from "react";
-import {ListFormHeaderProp, ListFormProp} from "@/types/form";
+import { ListFormHeaderProp, ListFormProp } from "@/types/form";
 import ListFormHeader from "@/components/form/list/ListFormHeader";
 import ListBody from "@/components/form/list/ListBody";
-import {List} from "@/lib/classes/form/List.class";
+import { List } from "@/lib/classes/form/List.class";
 import ListFormFooter from "./ListFormFooter";
 import ListHeader from "@/components/form/list/ListHeader";
 

@@ -2,7 +2,12 @@
 
 import ListForm from "@/components/form/list/ListForm";
 import List from "@/lib/classes/form/List.class";
-import {ListFormHeaderProp, ListFormOption, ListFormProp, Page,} from "@/types/form";
+import {
+  ListFormHeaderProp,
+  ListFormOption,
+  ListFormProp,
+  Page,
+} from "@/types/form";
 
 export default function ListPageWrapper<T>({
   data,
