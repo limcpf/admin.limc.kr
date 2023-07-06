@@ -1,16 +1,11 @@
 "use client";
 import React from "react";
-import Button from "@/components/btn/Button";
-import DetailForm from "@/components/form/DetailForm";
-import { request } from "@/lib/api/request";
-import { METHODS } from "@/lib/constants/InputType";
-import {
-  AddDetailFormOption,
-  AddDetailFormProp,
-  DetailFormInput,
-} from "@/types/form";
-import { useRouter } from "next/navigation";
-import PageWrapperHeader from "@/app/(menu)/site/[name]/pageWrapperHeader";
+import DetailForm from "@/components/form/detail/DetailForm";
+import {request} from "@/lib/api/request";
+import {METHODS} from "@/lib/constants/InputType";
+import {AddDetailFormOption, AddDetailFormProp, DetailFormInput,} from "@/types/form";
+import {useRouter} from "next/navigation";
+import AddDetailPageWrapper from "@/components/form/detail/add/AddDetailPageWrapper";
 
 export default function AddDetailForm<T>({
   data,
@@ -39,13 +34,12 @@ export default function AddDetailForm<T>({
       payload[t.id] = t.value;
     }
 
-    const pk = payload[option.pk];
-
     request(option.apiHref, METHODS.POST, payload)
       .then((data) => data.json())
       .then((data) => {
+        const obj = data as T;
         alert("전송 성공!");
-        router.push(option.successHref + pk);
+        router.push(option.successHref + obj[option.pk]);
       })
       .catch((e: Error) => {
         console.log(e);
@@ -55,19 +49,14 @@ export default function AddDetailForm<T>({
 
   return (
     <div className="flex flex-col w-full justify-center items-center">
-      <PageWrapperHeader option={form.option} />
+      <AddDetailPageWrapper option={form.option} />
       <hr className="w-11/12 sm:w-4/5 pb-2" />
-      <DetailForm onSubmit={onSubmit} form={form}>
-        <div className="col-span-full grid grid-cols-12 my-3">
-          <Button
-            isSubmit={true}
-            className="col-start-6 col-end-8"
-            text="추가"
-            type="ROUNDED"
-            onClick={() => {}}
-          />
-        </div>
-      </DetailForm>
+      <DetailForm
+          onSubmit={onSubmit}
+          data={form.data}
+          inputs={form.inputs}
+          selectData={form.option.selectData}
+      />
     </div>
   );
 }

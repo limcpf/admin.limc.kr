@@ -1,4 +1,4 @@
-import { API_URL } from "./API";
+import {API_URL} from "./API";
 
 export const INPUT_TYPES = {
   TEXT_INPUT: "TEXT_INPUT",

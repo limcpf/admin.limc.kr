@@ -1,5 +1,5 @@
-import { DetailFormInput } from "@/types/form";
-import { TopicDetail } from "@/lib/classes/domain/topic/TopicDetail.class";
+import {DetailFormInput} from "@/types/form";
+import {TopicDetail} from "@/lib/classes/domain/topic/TopicDetail.class";
 
 const TopicUpdateFormInputs: DetailFormInput<TopicDetail>[] = [
   {
@@ -7,9 +7,6 @@ const TopicUpdateFormInputs: DetailFormInput<TopicDetail>[] = [
     name: "ID",
     col: 6,
     type: "TEXT",
-    option: {
-      disabled: true,
-    },
   },
   {
     id: "site",
@@ -48,7 +45,7 @@ const TopicUpdateFormInputs: DetailFormInput<TopicDetail>[] = [
     type: "NUMBER",
     option: {
       disabled: true,
-    },
+    }
   },
   {
     id: "createdAt",

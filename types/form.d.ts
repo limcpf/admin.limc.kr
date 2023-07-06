@@ -88,3 +88,8 @@ export type DetailFormProp<T> = {
   inputs: DetailFormInput<T>[];
   option?: DetailFormOption;
 };
+
+/** etc */
+export interface JsonObject {
+  [key:string]: string
+}

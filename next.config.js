@@ -8,7 +8,10 @@ const nextConfig = {
           destination: "http://localhost:8080/:path*",
         },
       ];
-    }
+    },
+  experimental: {
+    serverActions: true,
+  },
 }
 
 module.exports = nextConfig

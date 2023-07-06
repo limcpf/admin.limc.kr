@@ -1,25 +1,25 @@
 "use client";
 
-import { DetailFormInput, UpdateDetailFormProp } from "@/types/form";
-import { FormEventHandler, ReactNode } from "react";
+import {DetailFormInput, DetailSelectData} from "@/types/form";
+import React, {FormEventHandler} from "react";
 import DetailLabel from "./DetailLabel";
 import DetailInput from "./DetailInput";
+import Button from "@/components/btn/Button";
 
 type Props = {
-  onSubmit: FormEventHandler<HTMLFormElement>;
-  children?: ReactNode;
+  onSubmit?: FormEventHandler<HTMLFormElement>;
 };
 
 export default function DetailForm<T>({
-  form,
+    data,
+    inputs,
   onSubmit,
-  children,
+    selectData
 }: Props & {
-  form: UpdateDetailFormProp<T>;
+  data: T;
+  inputs: DetailFormInput<T>[];
+  selectData?: { [key: string]: DetailSelectData[] }
 }) {
-  const inputs = form.inputs;
-  const detail: T = form.data;
-
   return (
     <form
       onSubmit={onSubmit}
@@ -34,15 +34,25 @@ export default function DetailForm<T>({
             <DetailLabel<T> id={input.id} name={input.name} />
             <DetailInput<T>
               type={input.type}
-              value={detail[input.id]}
+              value={data[input.id]}
               id={input.id}
               option={input.option}
-              selectData={form.option?.selectData}
+              selectData={selectData}
             />
           </div>
         );
       })}
-      {children ? children : <></>}
+      {onSubmit
+        && (<div className="col-span-full grid grid-cols-12 my-3">
+          <Button
+              isSubmit={true}
+              className="col-start-6 col-end-8"
+              text="수정"
+              type="ROUNDED"
+              onClick={() => {}}
+          />
+        </div>)
+      }
     </form>
   );
 }

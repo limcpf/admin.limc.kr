@@ -1,12 +1,12 @@
-import { request } from "@/lib/api/request";
+import {request} from "@/lib/api/request";
 import Topic from "@/lib/classes/domain/topic/Topic.class";
-import { API_URLS } from "@/lib/constants/API";
-import { METHODS } from "@/lib/constants/InputType";
-import { Page } from "@/types/form";
-import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
-import ListPageWrapper from "@/components/form/ListPageWrapper";
-import TopicListFormHeaders from "@/lib/form/list/TopicListFormHeaders";
-import TopicListFormOption from "@/lib/form/list/TopicListFormOption";
+import {API_URLS} from "@/lib/constants/API";
+import {METHODS} from "@/lib/constants/InputType";
+import {Page} from "@/types/form";
+import {Params} from "next/dist/shared/lib/router/utils/route-matcher";
+import ListPageWrapper from "@/components/form/list/page/ListPageWrapper";
+import TopicListFormHeaders from "@/lib/form/topic/list/TopicListFormHeaders";
+import TopicListFormOption from "@/lib/form/topic/list/TopicListFormOption";
 
 async function getData(page: string) {
   const res = await request(API_URLS.priTopic + `?page=${page}`, METHODS.GET);
