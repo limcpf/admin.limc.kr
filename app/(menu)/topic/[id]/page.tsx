@@ -1,13 +1,14 @@
 import React from "react";
-import { request } from "@/lib/api/request";
-import { API_URLS } from "@/lib/constants/API";
-import { METHODS } from "@/lib/constants/InputType";
-import { TopicDetail } from "@/lib/classes/domain/topic/TopicDetail.class";
+import {request} from "@/lib/api/request";
+import {API_URLS} from "@/lib/constants/API";
+import {METHODS} from "@/lib/constants/InputType";
+import {TopicDetail} from "@/lib/classes/domain/topic/TopicDetail.class";
 import UpdateDetailPageWrapper from "@/components/form/detail/update/UpdateDetailPageWrapper";
 import TopicUpdateFormInputs from "@/lib/form/topic/detail/TopicUpdateFormInputs";
 import TopicUpdateFormOption from "@/lib/form/topic/detail/TopicUpdateFormOption";
-import { UpdateDetailFormOption } from "@/types/form";
-import { getSiteSelectData, patchTopic } from "@/lib/api/Topic.api";
+import {UpdateDetailFormOption} from "@/types/form";
+import {patchTopic} from "@/lib/api/Topic.api";
+import {getSiteSelectData} from "@/lib/api/Site.api";
 
 type Props = {
   params: {

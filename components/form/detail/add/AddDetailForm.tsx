@@ -1,24 +1,21 @@
 "use client";
-import React from "react";
+import React, {FormEventHandler} from "react";
 import DetailForm from "@/components/form/detail/DetailForm";
-import { request } from "@/lib/api/request";
-import { METHODS } from "@/lib/constants/InputType";
-import {
-  AddDetailFormOption,
-  AddDetailFormProp,
-  DetailFormInput,
-} from "@/types/form";
-import { useRouter } from "next/navigation";
+import {AddDetailFormOption, AddDetailFormProp, DetailFormInput, JsonObject,} from "@/types/form";
+import {useRouter} from "next/navigation";
 import AddDetailPageWrapper from "@/components/form/detail/add/AddDetailPageWrapper";
+import {getJsonObjectFromForm} from "@/lib/util/Submit.util";
 
 export default function AddDetailForm<T>({
   data,
   inputs,
   option,
+  func
 }: {
   data: T;
   inputs: DetailFormInput<T>[];
   option: AddDetailFormOption<T>;
+  func: (payload: JsonObject) => Promise<any>;
 }) {
   const router = useRouter();
 
@@ -28,27 +25,18 @@ export default function AddDetailForm<T>({
     option: option,
   };
 
-  const onSubmit = (evt: any) => {
+  const onSubmit: FormEventHandler<HTMLFormElement> = (evt) => {
     evt.preventDefault();
-    const target = evt.target;
-
-    const payload: any = {};
-
-    for (const t of target) {
-      payload[t.id] = t.value;
-    }
-
-    request(option.apiHref, METHODS.POST, payload)
-      .then((data) => data.json())
-      .then((data) => {
-        const obj = data as T;
-        alert("전송 성공!");
-        router.push(option.successHref + obj[option.pk]);
-      })
-      .catch((e: Error) => {
-        console.log(e);
-        alert("전송 실패");
-      });
+    if (!func) return;
+    const obj = getJsonObjectFromForm(evt);
+    func(obj)
+    .then((d) => {
+      alert("생성 완료")
+      router.push(option.successHref + "/" + d[option.pk])
+    })
+    .catch((e: Error) => {
+      alert(e.message);
+    });
   };
 
   return (

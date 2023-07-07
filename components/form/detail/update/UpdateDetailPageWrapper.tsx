@@ -1,15 +1,10 @@
 "use client";
 
-import {
-  DetailFormInput,
-  JsonObject,
-  UpdateDetailFormOption,
-  UpdateDetailFormProp,
-} from "@/types/form";
+import {DetailFormInput, JsonObject, UpdateDetailFormOption, UpdateDetailFormProp,} from "@/types/form";
 import UpdateDetailForm from "@/components/form/detail/update/UpdateDetailForm";
-import { FormEventHandler } from "react";
-import { getJsonObjectFromForm } from "@/lib/util/Submit.util";
-import { useRouter } from "next/navigation";
+import {FormEventHandler} from "react";
+import {getJsonObjectFromForm} from "@/lib/util/Submit.util";
+import {useRouter} from "next/navigation";
 
 export default function UpdateDetailPageWrapper<T>({
   data,
@@ -37,7 +32,7 @@ export default function UpdateDetailPageWrapper<T>({
 
     func(obj)
       .then(() => {
-        alert("수정 성공");
+        alert("수정 완료");
         router.refresh();
       })
       .catch((e: Error) => {

@@ -1,7 +1,7 @@
 "use client";
 
-import { DetailFormInput, DetailSelectData } from "@/types/form";
-import React, { FormEventHandler } from "react";
+import {DetailFormInput, DetailSelectData} from "@/types/form";
+import React, {FormEventHandler} from "react";
 import DetailLabel from "./DetailLabel";
 import DetailInput from "./DetailInput";
 import Button from "@/components/btn/Button";
@@ -47,7 +47,7 @@ export default function DetailForm<T>({
           <Button
             isSubmit={true}
             className="col-start-6 col-end-8"
-            text="수정"
+            text="저장"
             type="ROUNDED"
             onClick={() => {}}
           />

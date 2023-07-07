@@ -1,16 +1,10 @@
-import { request } from "@/lib/api/request";
-import { API_URLS } from "@/lib/constants/API";
-import { METHODS } from "@/lib/constants/InputType";
-import { AddDetailFormOption } from "@/types/form";
+import {API_URLS} from "@/lib/constants/API";
+import {AddDetailFormOption} from "@/types/form";
 import AddDetailForm from "@/components/form/detail/add/AddDetailForm";
 import Topic from "@/lib/classes/domain/topic/Topic.class";
 import TopicAddFormInputs from "@/lib/form/topic/detail/TopicAddFormInputs";
-
-const getSiteSelectData = async () => {
-  const res = await request(API_URLS.priSite + "/list", METHODS.GET);
-  if (!res.ok) throw new Error(`${res.status}`);
-  return res.json();
-};
+import {getSiteSelectData} from "@/lib/api/Site.api";
+import {addTopic} from "@/lib/api/Topic.api";
 
 export default async function TopicAddPage() {
   const option: AddDetailFormOption<Topic> = {
@@ -27,6 +21,7 @@ export default async function TopicAddPage() {
       data={new Topic("", "", "", "", "")}
       inputs={TopicAddFormInputs}
       option={option}
+      func={addTopic}
     />
   );
 }
