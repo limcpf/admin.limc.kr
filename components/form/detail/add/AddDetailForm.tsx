@@ -1,16 +1,21 @@
 "use client";
-import React, {FormEventHandler} from "react";
+import React, { FormEventHandler } from "react";
 import DetailForm from "@/components/form/detail/DetailForm";
-import {AddDetailFormOption, AddDetailFormProp, DetailFormInput, JsonObject,} from "@/types/form";
-import {useRouter} from "next/navigation";
+import {
+  AddDetailFormOption,
+  AddDetailFormProp,
+  DetailFormInput,
+  JsonObject,
+} from "@/types/form";
+import { useRouter } from "next/navigation";
 import AddDetailPageWrapper from "@/components/form/detail/add/AddDetailPageWrapper";
-import {getJsonObjectFromForm} from "@/lib/util/Submit.util";
+import { getJsonObjectFromForm } from "@/lib/util/Submit.util";
 
 export default function AddDetailForm<T>({
   data,
   inputs,
   option,
-  func
+  func,
 }: {
   data: T;
   inputs: DetailFormInput<T>[];
@@ -30,13 +35,13 @@ export default function AddDetailForm<T>({
     if (!func) return;
     const obj = getJsonObjectFromForm(evt);
     func(obj)
-    .then((d) => {
-      alert("생성 완료")
-      router.push(option.successHref + "/" + d[option.pk])
-    })
-    .catch((e: Error) => {
-      alert(e.message);
-    });
+      .then((d) => {
+        alert("생성 완료");
+        router.push(option.successHref + "/" + d[option.pk]);
+      })
+      .catch((e: Error) => {
+        alert(e.message);
+      });
   };
 
   return (

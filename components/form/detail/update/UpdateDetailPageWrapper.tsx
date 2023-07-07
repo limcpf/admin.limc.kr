@@ -1,10 +1,15 @@
 "use client";
 
-import {DetailFormInput, JsonObject, UpdateDetailFormOption, UpdateDetailFormProp,} from "@/types/form";
+import {
+  DetailFormInput,
+  JsonObject,
+  UpdateDetailFormOption,
+  UpdateDetailFormProp,
+} from "@/types/form";
 import UpdateDetailForm from "@/components/form/detail/update/UpdateDetailForm";
-import {FormEventHandler} from "react";
-import {getJsonObjectFromForm} from "@/lib/util/Submit.util";
-import {useRouter} from "next/navigation";
+import { FormEventHandler } from "react";
+import { getJsonObjectFromForm } from "@/lib/util/Submit.util";
+import { useRouter } from "next/navigation";
 
 export default function UpdateDetailPageWrapper<T>({
   data,

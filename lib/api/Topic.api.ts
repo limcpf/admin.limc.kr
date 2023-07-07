@@ -1,7 +1,7 @@
-import {request, response} from "@/lib/api/request";
-import {API_URLS} from "@/lib/constants/API";
-import {METHODS} from "@/lib/constants/InputType";
-import {JsonObject} from "@/types/form";
+import { request, response } from "@/lib/api/request";
+import { API_URLS } from "@/lib/constants/API";
+import { METHODS } from "@/lib/constants/InputType";
+import { JsonObject } from "@/types/form";
 
 export async function patchTopic(payload: JsonObject) {
   "use server";
