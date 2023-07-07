@@ -1,21 +1,17 @@
 import React from "react";
-import { ListFormHeader } from "@/types/form";
+import { ListFormHeaderProp } from "@/types/form";
 import Link from "next/link";
+import DateUtil from "@/lib/util/Date.util";
 
 export default function ListBody<T>({
   headers,
   data,
   index,
 }: {
-  headers: ListFormHeader<T>[];
+  headers: ListFormHeaderProp<T>[];
   data: T;
   index: number;
 }) {
-  const koDtf = new Intl.DateTimeFormat("ko", {
-    dateStyle: "long",
-    timeStyle: "medium",
-  });
-
   const divideRowBg = (i: number) =>
     i % 2 === 1
       ? "bg-gray-100 hover:bg-gray-300"
@@ -38,9 +34,11 @@ export default function ListBody<T>({
     );
   };
 
-  const getListFormBody = (h: ListFormHeader<T>, t: T) => {
-    const content =
-      h.type === "DATE" ? koDtf.format(new Date(String(t[h.id]))) : t[h.id];
+  const getListFormBody = (h: ListFormHeaderProp<T>, t: T) => {
+    let content: T[keyof T] | string = t[h.id];
+    if (h.type === "DATE" && typeof content === "string") {
+      content = DateUtil.getInstance().date2Kr(content);
+    }
     const href = h.option?.href;
 
     if (h.option && href) {
@@ -58,7 +56,7 @@ export default function ListBody<T>({
     <div
       className={`col-span-full grid grid-cols-12 py-3 ${divideRowBg(index)}`}
     >
-      {headers.map((h: ListFormHeader<T>, i2: number) => {
+      {headers.map((h: ListFormHeaderProp<T>, i2: number) => {
         const key = `cell-body-${index}-${i2}`;
         const cn = `
                     text-${h.align}

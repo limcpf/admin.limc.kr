@@ -1,12 +1,14 @@
 import BaseTime from "../../BaseTime.class";
 
-class Topic extends BaseTime {
+class Series extends BaseTime {
   id: string;
   site: string;
+  topic: string;
   name: string;
   constructor(
     id: string,
     site: string,
+    topic: string,
     name: string,
     createdAt?: string,
     updatedAt?: string,
@@ -15,7 +17,8 @@ class Topic extends BaseTime {
     this.id = id;
     this.site = site;
     this.name = name;
+    this.topic = topic;
   }
 }
 
-export default Topic;
+export default Series;

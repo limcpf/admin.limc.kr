@@ -1,10 +1,11 @@
 import React from "react";
-import _ from "lodash";
-import PageWrapper from "./pageWrapper";
 import { API_URLS } from "@/lib/constants/API";
 import { METHODS } from "@/lib/constants/InputType";
 import { request } from "@/lib/api/request";
 import { SiteDetail } from "@/lib/classes/domain/site/SiteDetail.class";
+import UpdateDetailPageWrapper from "@/components/form/detail/update/UpdateDetailPageWrapper";
+import SiteDetailFormInputs from "@/lib/form/site/detail/SiteDetailFormInputs";
+import SiteDetailFormOption from "@/lib/form/site/detail/SiteDetailFormOption";
 
 type Props = {
   params: {
@@ -23,10 +24,13 @@ async function getData(name: string) {
 export default async function SiteDetailPage({ params }: Props) {
   if (!params.name) return <span>이름이 존재하지 않음</span>;
   const data = (await getData(params.name)) as SiteDetail;
-
   return (
     <div className="flex flex-col w-full justify-center items-center">
-      <PageWrapper data={data} />
+      <UpdateDetailPageWrapper<SiteDetail>
+        data={data}
+        inputs={SiteDetailFormInputs}
+        option={SiteDetailFormOption}
+      />
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import { SiteDetail } from "@/lib/classes/domain/site/SiteDetail.class";
-import { DetailFormInput, DetailFormProp } from "@/types/form";
+import { DetailFormInput } from "@/types/form";
 
 const detailFormInputs: DetailFormInput<SiteDetail>[] = [
   {
@@ -15,7 +15,7 @@ const detailFormInputs: DetailFormInput<SiteDetail>[] = [
     id: "topicCnt",
     name: "토픽 개수",
     col: 4,
-    type: "TEXT",
+    type: "NUMBER",
     option: {
       disabled: true,
     },
@@ -24,7 +24,7 @@ const detailFormInputs: DetailFormInput<SiteDetail>[] = [
     id: "seriesCnt",
     name: "시리즈 개수",
     col: 4,
-    type: "TEXT",
+    type: "NUMBER",
     option: {
       disabled: true,
     },
@@ -33,7 +33,7 @@ const detailFormInputs: DetailFormInput<SiteDetail>[] = [
     id: "postCnt",
     name: "글 개수",
     col: 4,
-    type: "TEXT",
+    type: "NUMBER",
     option: {
       disabled: true,
     },
@@ -42,7 +42,7 @@ const detailFormInputs: DetailFormInput<SiteDetail>[] = [
     id: "createdAt",
     name: "생성일시",
     col: 12,
-    type: "TEXT",
+    type: "DATE",
     option: {
       disabled: true,
     },
@@ -51,7 +51,7 @@ const detailFormInputs: DetailFormInput<SiteDetail>[] = [
     id: "updatedAt",
     name: "수정일시",
     col: 12,
-    type: "TEXT",
+    type: "DATE",
     option: {
       disabled: true,
     },

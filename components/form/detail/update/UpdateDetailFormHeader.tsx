@@ -5,8 +5,8 @@ import { useRouter } from "next/navigation";
 import { DetailFormOption } from "@/types/form";
 import Button from "@/components/btn/Button";
 
-export default function PageWrapperHeader({
-  option,
+export default function UpdateDetailFormHeader({
+  option = {},
 }: {
   option?: DetailFormOption;
 }) {
