@@ -1,57 +1,65 @@
-import React, {useEffect, useRef, useState} from "react";
-import {SelectDataList, SelectInputProp} from "@/components/form/input/interface/SelectInput.interface";
-import {DetailSelectData} from "@/types/form";
+import React, { useEffect, useRef, useState } from "react";
+import {
+  SelectDataList,
+  SelectInputProp,
+} from "@/components/form/input/interface/SelectInput.interface";
+import { DetailSelectData } from "@/types/form";
 
-export default function SelectInput<T>({input, dataFunction, setFunction, parentValue}: {
-  input: SelectInputProp<T>,
-  setFunction?: Function,
-  dataFunction: (key?: string) => Promise<any>
+export default function SelectInput<T>({
+  input,
+  dataFunction,
+  setFunction,
+  parentValue,
+}: {
+  input: SelectInputProp<T>;
+  setFunction?: Function;
+  dataFunction: (key?: string) => Promise<any>;
   parentValue?: string;
 }) {
-  const {id, isChild, value, type, option = {}} = input;
+  const { id, isChild, value, type, option = {} } = input;
   const [data, setData] = useState<SelectDataList[]>([]);
   const ref = useRef<HTMLSelectElement>(null);
 
-  const {disabled, visible, required} = option;
+  const { disabled, visible, required } = option;
 
-  let className = "block w-full p-2.5 bg-gray-50 border border-gray-300 text-gray-900 text-xs sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ";
+  let className =
+    "block w-full p-2.5 bg-gray-50 border border-gray-300 text-gray-900 text-xs sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ";
 
   useEffect(() => {
-    if(isChild) {
-      if(!parentValue)  {
+    if (isChild) {
+      if (!parentValue) {
         setData([]);
-        if(ref.current) ref.current.value = '';
+        if (ref.current) ref.current.value = "";
         return;
       }
     }
 
-    dataFunction(parentValue)
-    .then((d) => {
-      setData(d as SelectDataList[])
-    })
-  }, [parentValue])
+    dataFunction(parentValue).then((d) => {
+      setData(d as SelectDataList[]);
+    });
+  }, [parentValue]);
   return (
-      <select
-          id={id}
-          name={id}
-          ref={ref}
-          className={className}
-          required={required}
-          disabled={disabled}
-          defaultValue={String(value) || ""}
-          onChange={(evt) => {
-            if(setFunction) setFunction(evt.currentTarget.value)
-          }}
-      >
-        <option value="">데이터를 선택해주세요</option>
-        {data && data.map(({ key, value }: DetailSelectData, i: number) => (
-            <option key={id + i} value={`${value}`}>
-              {key}
-            </option>
+    <select
+      id={id}
+      name={id}
+      ref={ref}
+      className={className}
+      required={required}
+      disabled={disabled}
+      defaultValue={String(value) || ""}
+      onChange={(evt) => {
+        if (setFunction) setFunction(evt.currentTarget.value);
+      }}
+    >
+      <option value="">데이터를 선택해주세요</option>
+      {data &&
+        data.map(({ key, value }: DetailSelectData, i: number) => (
+          <option key={id + i} value={`${value}`}>
+            {key}
+          </option>
         ))}
-      </select>
-  )
-
+    </select>
+  );
 }
 // const selectInput = V(selectData: { [key: string]: DetailSelectData[] }) => {
 //   const id = option && option.selectDataId ? option.selectDataId : "";

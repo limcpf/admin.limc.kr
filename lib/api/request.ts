@@ -1,5 +1,5 @@
-import {METHOD} from "@/lib/constants/InputType";
-import {Response} from "next/dist/compiled/@edge-runtime/primitives";
+import { METHOD } from "@/lib/constants/InputType";
+import { Response } from "next/dist/compiled/@edge-runtime/primitives";
 
 export const request = (url: string, method: METHOD, payload?: any) =>
   fetch(`${process.env.API_SERVER_URL || "/api"}${url}`, {
@@ -13,15 +13,15 @@ export const request = (url: string, method: METHOD, payload?: any) =>
   });
 
 export const cacheRequest = (url: string, method: METHOD, payload?: any) =>
-    fetch(`${process.env.API_SERVER_URL || "/api"}${url}`, {
-      method: method,
-      headers: {
-        Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
-        "Content-type": "application/json",
-      },
-      next: { revalidate: 10 },
-      body: payload ? JSON.stringify(payload) : null
-    });
+  fetch(`${process.env.API_SERVER_URL || "/api"}${url}`, {
+    method: method,
+    headers: {
+      Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
+      "Content-type": "application/json",
+    },
+    next: { revalidate: 10 },
+    body: payload ? JSON.stringify(payload) : null,
+  });
 
 export const response = async (h: Response) => {
   try {

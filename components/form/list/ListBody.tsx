@@ -1,5 +1,5 @@
 import React from "react";
-import {ListFormHeaderProp} from "@/types/form";
+import { ListFormHeaderProp } from "@/types/form";
 import Link from "next/link";
 import DateUtil from "@/lib/util/Date.util";
 

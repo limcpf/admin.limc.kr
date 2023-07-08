@@ -1,7 +1,7 @@
 "use client";
 
-import {DetailFormInput, DetailSelectData} from "@/types/form";
-import React, {FormEventHandler} from "react";
+import { DetailFormInput, DetailSelectData } from "@/types/form";
+import React, { FormEventHandler } from "react";
 import DetailLabel from "./DetailLabel";
 import DetailInput from "./DetailInput";
 import Button from "@/components/btn/Button";

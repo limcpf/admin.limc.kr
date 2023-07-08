@@ -1,4 +1,4 @@
-import {DetailFormInput} from "@/types/form";
+import { DetailFormInput } from "@/types/form";
 import Series from "@/lib/classes/domain/series/Series.class";
 import topicAddFormInputs from "@/lib/form/topic/detail/TopicAddFormInputs";
 

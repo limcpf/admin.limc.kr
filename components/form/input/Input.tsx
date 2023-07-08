@@ -1,8 +1,5 @@
-import {Input} from "@/components/form/input/interface/Input.interface";
+import { Input } from "@/components/form/input/interface/Input.interface";
 
 export default function InputFactory<T>({}: {
-  input: Input<T>
-}) {
-
-
-}
+  input: Input<T>;
+}) {}

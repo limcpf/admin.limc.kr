@@ -2,15 +2,15 @@ export const INPUT_TYPE = {
   SELECT: "SELECT",
   TEXT: "TEXT",
   NUMBER: "NUMBER",
-  DATE: "DATE"
+  DATE: "DATE",
 } as const;
 
 export type INPUT_TYPE = typeof INPUT_TYPE[keyof typeof INPUT_TYPE];
 
 export interface InputOption<T> {
-  disabled?: boolean,
-  visible?: boolean,
-  required?: boolean,
+  disabled?: boolean;
+  visible?: boolean;
+  required?: boolean;
 }
 
 export interface Input<T> {
