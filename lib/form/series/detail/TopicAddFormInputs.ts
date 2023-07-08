@@ -1,4 +1,4 @@
-import { DetailFormInput } from "@/types/form";
+import {DetailFormInput} from "@/types/form";
 import Series from "@/lib/classes/domain/series/Series.class";
 import topicAddFormInputs from "@/lib/form/topic/detail/TopicAddFormInputs";
 
@@ -14,7 +14,7 @@ const seriesAddFormInputs: DetailFormInput<Series>[] = [
     },
   },
   {
-    id: "name",
+    id: "title",
     name: "이름",
     col: 12,
     type: "TEXT",
