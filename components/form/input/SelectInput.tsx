@@ -1,6 +1,9 @@
-import React, {useEffect, useRef, useState} from "react";
-import {SelectDataList, SelectInputProp,} from "@/components/form/input/interface/SelectInput.interface";
-import {DetailSelectData} from "@/types/form";
+import React, { useEffect, useRef, useState } from "react";
+import {
+  SelectDataList,
+  SelectInputProp,
+} from "@/components/form/input/interface/SelectInput.interface";
+import { DetailSelectData } from "@/types/form";
 
 export default function SelectInput<T>({
   input,
@@ -18,7 +21,7 @@ export default function SelectInput<T>({
   const ref = useRef<HTMLSelectElement>(null);
   const [v, setV] = useState<string>(value);
 
-  const { disabled,  required } = option;
+  const { disabled, required } = option;
 
   let className =
     "block w-full p-2.5 bg-gray-50 border border-gray-300 text-gray-900 text-xs sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ";
@@ -32,7 +35,7 @@ export default function SelectInput<T>({
         return;
       }
     }
-    if(!dataFunction) return;
+    if (!dataFunction) return;
     dataFunction(parentValue).then((d) => {
       if (ref.current) ref.current.value = "";
       setData(d as SelectDataList[]);
@@ -49,7 +52,7 @@ export default function SelectInput<T>({
       value={v}
       onChange={(evt) => {
         if (setFunction) setFunction(evt.currentTarget.value);
-        setV(evt.currentTarget.value)
+        setV(evt.currentTarget.value);
       }}
     >
       <option value="">데이터를 선택해주세요</option>

@@ -1,5 +1,5 @@
 import React from "react";
-import {NumberInputProp} from "@/components/form/input/interface/NumberInput.interface";
+import { NumberInputProp } from "@/components/form/input/interface/NumberInput.interface";
 
 export default function NumberInput<T>({
   input,

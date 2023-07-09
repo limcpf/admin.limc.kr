@@ -1,9 +1,9 @@
 import React from "react";
-import {request} from "@/lib/api/request";
-import {API_URLS} from "@/lib/constants/API";
-import {METHODS} from "@/lib/constants/InputType";
+import { request } from "@/lib/api/request";
+import { API_URLS } from "@/lib/constants/API";
+import { METHODS } from "@/lib/constants/InputType";
 import SeriesDetailPage from "@/app/(menu)/series/[id]/detail";
-import {SeriesDetail} from "@/lib/classes/domain/series/SeriesDetail.class";
+import { SeriesDetail } from "@/lib/classes/domain/series/SeriesDetail.class";
 
 type Props = {
   params: {
@@ -22,5 +22,5 @@ export default async function SeriesDetailPageWrapper({ params }: Props) {
   if (!id) return <div className="max-h-full">옳지 않은 id 값입니다.</div>;
 
   const data = (await getData(id)) as SeriesDetail;
-  return <SeriesDetailPage series={data} />
+  return <SeriesDetailPage series={data} />;
 }
