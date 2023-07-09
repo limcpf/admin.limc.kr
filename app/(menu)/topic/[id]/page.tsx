@@ -7,8 +7,8 @@ import UpdateDetailPageWrapper from "@/components/form/detail/update/UpdateDetai
 import TopicUpdateFormInputs from "@/lib/form/topic/detail/TopicUpdateFormInputs";
 import TopicUpdateFormOption from "@/lib/form/topic/detail/TopicUpdateFormOption";
 import { UpdateDetailFormOption } from "@/types/form";
-import { patchTopic } from "@/lib/api/Topic.api";
-import { getSiteSelectData } from "@/lib/api/Site.api";
+import { patchTopic } from "@/lib/api/Topic.server";
+import { getSiteSelectData } from "@/lib/api/Site.server";
 
 type Props = {
   params: {

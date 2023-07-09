@@ -17,7 +17,7 @@ export default function ListForm<T>({
   const list: List<T> = form.list;
 
   const contents: T[] = list.contents;
-  const classes = "w-full grid grid-cols-12 text-black gap-2  pb-0";
+  const classes = "w-full grid grid-cols-12 text-black gap-2 pb-0";
   return (
     <>
       <ListHeader list={list} option={form.option} />
