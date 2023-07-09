@@ -1,10 +1,10 @@
-import { API_URLS } from "@/lib/constants/API";
-import { AddDetailFormOption } from "@/types/form";
+import {API_URLS} from "@/lib/constants/API";
+import {AddDetailFormOption} from "@/types/form";
 import AddDetailForm from "@/components/form/detail/add/AddDetailForm";
 import Topic from "@/lib/classes/domain/topic/Topic.class";
 import TopicAddFormInputs from "@/lib/form/topic/detail/TopicAddFormInputs";
-import { getSiteSelectData } from "@/lib/api/Site.api";
-import { addTopic } from "@/lib/api/Topic.api";
+import {getSiteSelectData} from "@/lib/api/Site.server";
+import {addTopic} from "@/lib/api/Topic.server";
 
 export default async function TopicAddPage() {
   const option: AddDetailFormOption<Topic> = {

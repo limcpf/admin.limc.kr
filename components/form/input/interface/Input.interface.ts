@@ -15,6 +15,7 @@ export interface InputOption<T> {
 
 export interface Input<T> {
   id: keyof T & string;
+  name?: string;
   cols: number;
   value: string;
   type: INPUT_TYPE;

@@ -1,4 +1,4 @@
-import { ListFormHeaderProp } from "@/types/form";
+import {ListFormHeaderProp} from "@/types/form";
 import Series from "@/lib/classes/domain/series/Series.class";
 
 const SeriesListFormHeaders: ListFormHeaderProp<Series>[] = [
@@ -37,6 +37,10 @@ const SeriesListFormHeaders: ListFormHeaderProp<Series>[] = [
     col: 6,
     type: "TEXT",
     align: "center",
+    option: {
+      href: "/series/",
+      hrefId: "id"
+    }
   },
   {
     name: "생성일시",

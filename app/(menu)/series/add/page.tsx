@@ -1,37 +1,17 @@
 "use client";
 
 import Button from "@/components/btn/Button";
-import React, { FormEventHandler, useState } from "react";
-import { useRouter } from "next/navigation";
-import { getJsonObjectFromForm } from "@/lib/util/Submit.util";
-import { JsonObject } from "@/types/form";
-import { cacheRequest, request, response } from "@/lib/api/request";
-import { API_URLS } from "@/lib/constants/API";
-import { METHODS } from "@/lib/constants/InputType";
+import React, {FormEventHandler, useState} from "react";
+import {useRouter} from "next/navigation";
+import {getJsonObjectFromForm} from "@/lib/util/Submit.util";
 import SelectInput from "@/components/form/input/SelectInput";
-import { SelectInputProp } from "@/components/form/input/interface/SelectInput.interface";
+import {SelectInputProp} from "@/components/form/input/interface/SelectInput.interface";
 import TextInput from "@/components/form/input/TextInput";
-import { TextInputProp } from "@/components/form/input/interface/TextInput.interface";
-import { SeriesDetail } from "@/lib/classes/domain/series/SeriesDetail.class";
-
-async function addSeries(payload: JsonObject) {
-  const res = await request(`${API_URLS.priSeries}`, METHODS.POST, payload);
-  return response(res);
-}
-
-async function getSite() {
-  const res = await cacheRequest(API_URLS.priSite + "/list", METHODS.GET);
-  return response(res);
-}
-
-async function getTopic(key?: string) {
-  if (!key) return;
-  const res = await cacheRequest(
-    API_URLS.priTopic + "/list/" + key,
-    METHODS.GET,
-  );
-  return response(res);
-}
+import {TextInputProp} from "@/components/form/input/interface/TextInput.interface";
+import {SeriesDetail} from "@/lib/classes/domain/series/SeriesDetail.class";
+import {getSiteClient} from "@/lib/api/Site.client";
+import {getTopic} from "@/lib/api/Topic.client";
+import {addSeries} from "@/lib/api/Series.client";
 
 export default function AddSeriesPage({}: {}) {
   const [site, setSite] = useState<string>("");
@@ -39,7 +19,6 @@ export default function AddSeriesPage({}: {}) {
   const onSubmit: FormEventHandler<HTMLFormElement> = (evt) => {
     evt.preventDefault();
     const obj = getJsonObjectFromForm(evt);
-    console.log(obj);
     addSeries(obj)
       .then((d) => {
         alert("생성 완료");
@@ -117,7 +96,7 @@ export default function AddSeriesPage({}: {}) {
           <SelectInput
             input={siteSelect}
             setFunction={setSite}
-            dataFunction={getSite}
+            dataFunction={getSiteClient}
           />
         </div>
         <div
