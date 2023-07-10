@@ -1,18 +1,18 @@
 "use client";
 import Button from "@/components/btn/Button";
-import React, {FormEventHandler, useState} from "react";
-import {SeriesDetail} from "@/lib/classes/domain/series/SeriesDetail.class";
-import {getTopic} from "@/lib/api/Topic.client";
-import {getJsonObjectFromForm} from "@/lib/util/Submit.util";
-import {patchSeries} from "@/lib/api/Series.client";
-import {useRouter} from "next/navigation";
-import {SelectInputProp} from "@/components/form/input/interface/SelectInput.interface";
-import {getSiteClient} from "@/lib/api/Site.client";
+import React, { FormEventHandler, useState } from "react";
+import { SeriesDetail } from "@/lib/classes/domain/series/SeriesDetail.class";
+import { getTopic } from "@/lib/api/Topic.client";
+import { getJsonObjectFromForm } from "@/lib/util/Submit.util";
+import { patchSeries } from "@/lib/api/Series.client";
+import { useRouter } from "next/navigation";
+import { SelectInputProp } from "@/components/form/input/interface/SelectInput.interface";
+import { getSiteClient } from "@/lib/api/Site.client";
 import InputFactory from "@/components/form/input/Input";
-import {SeriesUpdateDetailInput} from "@/lib/form/series/detail/SeriesUpdateDetailInput";
+import { SeriesUpdateDetailInput } from "@/lib/form/series/detail/SeriesUpdateDetailInput";
 
 export default function SeriesDetailPage({
-  series
+  series,
 }: {
   series: SeriesDetail;
 }) {
@@ -34,8 +34,8 @@ export default function SeriesDetailPage({
   const detailInputs = SeriesUpdateDetailInput;
 
   detailInputs.forEach((i) => {
-    i.value = series[i.id].toString()
-    if(i.type === "SELECT") {
+    i.value = series[i.id].toString();
+    if (i.type === "SELECT") {
       const select = i as SelectInputProp<SeriesDetail>;
       switch (i.id) {
         case "site":
@@ -47,7 +47,7 @@ export default function SeriesDetailPage({
           select.parentValue = site;
       }
     }
-  })
+  });
 
   return (
     <div className="flex items-center justify-center flex-col">
@@ -70,9 +70,9 @@ export default function SeriesDetailPage({
         onSubmit={onSubmit}
         className="grid grid-cols-12 gap-2 w-full p-3 pt-1 sm:w-4/5 sm:col-span-4"
       >
-        {
-          detailInputs.map(i => <InputFactory input={i} />)
-        }
+        {detailInputs.map((i) => (
+          <InputFactory input={i} />
+        ))}
         <div className="col-span-full grid grid-cols-12 my-3">
           <Button
             isSubmit={true}
