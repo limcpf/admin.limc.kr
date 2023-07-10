@@ -1,17 +1,16 @@
 "use client";
 
 import Button from "@/components/btn/Button";
-import React, { FormEventHandler, useState } from "react";
-import { useRouter } from "next/navigation";
-import { getJsonObjectFromForm } from "@/lib/util/Submit.util";
-import SelectInput from "@/components/form/input/SelectInput";
-import { SelectInputProp } from "@/components/form/input/interface/SelectInput.interface";
-import TextInput from "@/components/form/input/TextInput";
-import { TextInputProp } from "@/components/form/input/interface/TextInput.interface";
-import { SeriesDetail } from "@/lib/classes/domain/series/SeriesDetail.class";
-import { getSiteClient } from "@/lib/api/Site.client";
-import { getTopic } from "@/lib/api/Topic.client";
-import { addSeries } from "@/lib/api/Series.client";
+import React, {FormEventHandler, useState} from "react";
+import {useRouter} from "next/navigation";
+import {getJsonObjectFromForm} from "@/lib/util/Submit.util";
+import {getSiteClient} from "@/lib/api/Site.client";
+import {getTopic} from "@/lib/api/Topic.client";
+import {addSeries} from "@/lib/api/Series.client";
+import {SeriesAddDetailInput} from "@/lib/form/series/detail/SeriesAddDetailInput";
+import {SelectInputProp} from "@/components/form/input/interface/SelectInput.interface";
+import {SeriesDetail} from "@/lib/classes/domain/series/SeriesDetail.class";
+import InputFactory from "@/components/form/input/Input";
 
 export default function AddSeriesPage({}: {}) {
   const [site, setSite] = useState<string>("");
@@ -29,39 +28,17 @@ export default function AddSeriesPage({}: {}) {
       });
   };
 
-  const siteSelect: SelectInputProp<SeriesDetail> = {
-    id: "site",
-    cols: 12,
-    value: "",
-    type: "SELECT",
-    isChild: false,
-    option: {
-      required: true,
-    },
-  };
+  const addInputs = SeriesAddDetailInput;
+  const siteInput = addInputs.find((i) => i.id === "site") as SelectInputProp<SeriesDetail>;
+  const topicInput = addInputs.find((i) => i.id === "topic") as SelectInputProp<SeriesDetail>;
 
-  const topicSelect: SelectInputProp<SeriesDetail> = {
-    id: "topic",
-    cols: 12,
-    value: "",
-    type: "SELECT",
-    isChild: true,
-    option: {
-      required: true,
-    },
-  };
+  if(siteInput && topicInput) {
+    siteInput.setFunction = setSite;
+    siteInput.dataFunction = getSiteClient;
+    topicInput.dataFunction = getTopic;
+    topicInput.parentValue = site;
+  }
 
-  const textInput: TextInputProp<SeriesDetail> = {
-    id: "title",
-    cols: 12,
-    value: "",
-    type: "TEXT",
-    option: {
-      required: true,
-      minLength: 3,
-      maxLength: 255,
-    },
-  };
   return (
     <div className="flex items-center justify-center flex-col">
       {/** Header */}
@@ -83,59 +60,11 @@ export default function AddSeriesPage({}: {}) {
         onSubmit={onSubmit}
         className="grid grid-cols-12 gap-2 w-full p-3 pt-1 sm:w-4/5 sm:col-span-4"
       >
-        <div
-          key={`detail-form-input-site`}
-          className={`col-span-12 sm:col-span-12`}
-        >
-          <label
-            htmlFor="site"
-            className="block mb-2 text-sm font-medium text-gray-900"
-          >
-            사이트
-          </label>
-          <SelectInput
-            input={siteSelect}
-            setFunction={setSite}
-            dataFunction={getSiteClient}
-          />
-        </div>
-        <div
-          key={`detail-form-input-topic`}
-          className={`col-span-12 sm:col-span-12`}
-        >
-          <label
-            htmlFor="topic"
-            className="block mb-2 text-sm font-medium text-gray-900"
-          >
-            주제
-          </label>
-          <SelectInput
-            input={topicSelect}
-            dataFunction={getTopic}
-            parentValue={site}
-          />
-        </div>
-        <div
-          key={`detail-form-input-name`}
-          className={`col-span-12 sm:col-span-12`}
-        >
-          <label
-            htmlFor="topic"
-            className="block mb-2 text-sm font-medium text-gray-900"
-          >
-            제목
-          </label>
-          <TextInput input={textInput} />
-        </div>
-        <div className="col-span-full grid grid-cols-12 my-3">
-          <Button
-            isSubmit={true}
-            className="col-start-6 col-end-8"
-            text="저장"
-            type="ROUNDED"
-            onClick={() => {}}
-          />
-        </div>
+        {addInputs.map(
+            (i) => {
+              return <InputFactory input={i} />
+            }
+        )}
       </form>
     </div>
   );
