@@ -1,4 +1,7 @@
-import {Input, InputOption,} from "@/components/form/input/interface/Input.interface";
+import {
+  Input,
+  InputOption,
+} from "@/components/form/input/interface/Input.interface";
 
 export interface SelectDataList {
   key: string;

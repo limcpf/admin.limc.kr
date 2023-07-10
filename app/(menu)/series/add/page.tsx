@@ -1,15 +1,15 @@
 "use client";
 
 import Button from "@/components/btn/Button";
-import React, {FormEventHandler, useState} from "react";
-import {useRouter} from "next/navigation";
-import {getJsonObjectFromForm} from "@/lib/util/Submit.util";
-import {getSiteClient} from "@/lib/api/Site.client";
-import {getTopic} from "@/lib/api/Topic.client";
-import {addSeries} from "@/lib/api/Series.client";
-import {SeriesAddDetailInput} from "@/lib/form/series/detail/SeriesAddDetailInput";
-import {SelectInputProp} from "@/components/form/input/interface/SelectInput.interface";
-import {SeriesDetail} from "@/lib/classes/domain/series/SeriesDetail.class";
+import React, { FormEventHandler, useState } from "react";
+import { useRouter } from "next/navigation";
+import { getJsonObjectFromForm } from "@/lib/util/Submit.util";
+import { getSiteClient } from "@/lib/api/Site.client";
+import { getTopic } from "@/lib/api/Topic.client";
+import { addSeries } from "@/lib/api/Series.client";
+import { SeriesAddDetailInput } from "@/lib/form/series/detail/SeriesAddDetailInput";
+import { SelectInputProp } from "@/components/form/input/interface/SelectInput.interface";
+import { SeriesDetail } from "@/lib/classes/domain/series/SeriesDetail.class";
 import InputFactory from "@/components/form/input/Input";
 
 export default function AddSeriesPage({}: {}) {
@@ -29,10 +29,14 @@ export default function AddSeriesPage({}: {}) {
   };
 
   const addInputs = SeriesAddDetailInput;
-  const siteInput = addInputs.find((i) => i.id === "site") as SelectInputProp<SeriesDetail>;
-  const topicInput = addInputs.find((i) => i.id === "topic") as SelectInputProp<SeriesDetail>;
+  const siteInput = addInputs.find(
+    (i) => i.id === "site",
+  ) as SelectInputProp<SeriesDetail>;
+  const topicInput = addInputs.find(
+    (i) => i.id === "topic",
+  ) as SelectInputProp<SeriesDetail>;
 
-  if(siteInput && topicInput) {
+  if (siteInput && topicInput) {
     siteInput.setFunction = setSite;
     siteInput.dataFunction = getSiteClient;
     topicInput.dataFunction = getTopic;
@@ -60,11 +64,9 @@ export default function AddSeriesPage({}: {}) {
         onSubmit={onSubmit}
         className="grid grid-cols-12 gap-2 w-full p-3 pt-1 sm:w-4/5 sm:col-span-4"
       >
-        {addInputs.map(
-            (i) => {
-              return <InputFactory input={i} />
-            }
-        )}
+        {addInputs.map((i) => {
+          return <InputFactory input={i} />;
+        })}
       </form>
     </div>
   );

@@ -1,10 +1,10 @@
-import {SeriesDetail} from "@/lib/classes/domain/series/SeriesDetail.class";
-import {SelectInputProp} from "@/components/form/input/interface/SelectInput.interface";
-import {TextInputProp} from "@/components/form/input/interface/TextInput.interface";
-import {NumberInputProp} from "@/components/form/input/interface/NumberInput.interface";
+import { SeriesDetail } from "@/lib/classes/domain/series/SeriesDetail.class";
+import { SelectInputProp } from "@/components/form/input/interface/SelectInput.interface";
+import { TextInputProp } from "@/components/form/input/interface/TextInput.interface";
+import { NumberInputProp } from "@/components/form/input/interface/NumberInput.interface";
 
 type Inputs<T> = SelectInputProp<T> | TextInputProp<T> | NumberInputProp<T>;
-export const SeriesAddDetailInput:Inputs<SeriesDetail>[] = [
+export const SeriesAddDetailInput: Inputs<SeriesDetail>[] = [
   {
     id: "site",
     name: "사이트",
@@ -14,7 +14,7 @@ export const SeriesAddDetailInput:Inputs<SeriesDetail>[] = [
     isChild: false,
     option: {
       required: true,
-    }
+    },
   },
   {
     id: "topic",
@@ -38,5 +38,5 @@ export const SeriesAddDetailInput:Inputs<SeriesDetail>[] = [
       minLength: 3,
       maxLength: 255,
     },
-  }
-]
+  },
+];
