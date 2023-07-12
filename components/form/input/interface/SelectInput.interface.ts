@@ -13,5 +13,8 @@ export interface SelectInputOption<T> extends InputOption<T> {
 
 export interface SelectInputProp<T> extends Input<T> {
   isChild: boolean;
+  setFunction?: Function;
+  dataFunction?: (key?: string) => Promise<any>;
+  parentValue?: string;
   option?: SelectInputOption<T>;
 }
