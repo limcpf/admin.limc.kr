@@ -1,7 +1,7 @@
 import { ListFormHeaderProp } from "@/types/form";
 import Series from "@/lib/classes/domain/series/Series.class";
 
-const SeriesListFormHeaders: ListFormHeaderProp<Series>[] = [
+const SeriesListHeaders: ListFormHeaderProp<Series>[] = [
   {
     name: "아이디",
     id: "id",
@@ -51,4 +51,4 @@ const SeriesListFormHeaders: ListFormHeaderProp<Series>[] = [
   },
 ];
 
-export default SeriesListFormHeaders;
+export default SeriesListHeaders;

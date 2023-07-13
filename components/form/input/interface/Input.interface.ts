@@ -3,6 +3,7 @@ export const INPUT_TYPE = {
   TEXT: "TEXT",
   NUMBER: "NUMBER",
   DATE: "DATE",
+  TEXTAREA: "TEXTAREA",
 } as const;
 
 export type INPUT_TYPE = typeof INPUT_TYPE[keyof typeof INPUT_TYPE];

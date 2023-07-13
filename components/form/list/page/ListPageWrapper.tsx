@@ -1,6 +1,5 @@
 "use client";
 
-import ListForm from "@/components/form/list/ListForm";
 import List from "@/lib/classes/form/List.class";
 import {
   ListFormHeaderProp,
@@ -8,6 +7,7 @@ import {
   ListFormProp,
   Page,
 } from "@/types/form";
+import ListForm from "@/components/form/list/ListForm";
 
 export default function ListPageWrapper<T>({
   data,

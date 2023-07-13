@@ -6,41 +6,53 @@ import { useRouter } from "next/navigation";
 import { getJsonObjectFromForm } from "@/lib/util/Submit.util";
 import { getSiteSelect } from "@/lib/api/Site.client";
 import { getTopicSelect } from "@/lib/api/Topic.client";
-import { addSeries } from "@/lib/api/Series.client";
-import { SeriesAddDetailInput } from "@/lib/form/series/detail/SeriesAddDetailInput";
 import { SelectInputProp } from "@/components/form/input/interface/SelectInput.interface";
-import { SeriesDetail } from "@/lib/classes/domain/series/SeriesDetail.class";
 import InputFactory from "@/components/form/input/InputFactory";
+import { PostAddDetailInput } from "@/lib/form/post/detail/PostAddDetailInput";
+import PostDetail from "@/lib/classes/domain/post/PostDetail.class";
+import { addPost } from "@/lib/api/Post.client";
+import { getSeriesSelect } from "@/lib/api/Series.client";
 
-export default function AddSeriesPage({}: {}) {
+export default function AddPostPage({}: {}) {
   const [site, setSite] = useState<string>("");
+  const [topic, setTopic] = useState<string>("");
   const router = useRouter();
   const onSubmit: FormEventHandler<HTMLFormElement> = (evt) => {
     evt.preventDefault();
     const obj = getJsonObjectFromForm(evt);
-    addSeries(obj)
+    addPost(obj)
       .then((d) => {
         alert("생성 완료");
-        router.push(`/series/${d.id}`);
+        router.push(`/post/${d.id}`);
       })
       .catch((e: Error) => {
         alert(e.message);
       });
   };
 
-  const addInputs = SeriesAddDetailInput;
+  const addInputs = PostAddDetailInput;
   const siteInput = addInputs.find(
     (i) => i.id === "site",
-  ) as SelectInputProp<SeriesDetail>;
+  ) as SelectInputProp<PostDetail>;
+
   const topicInput = addInputs.find(
     (i) => i.id === "topic",
-  ) as SelectInputProp<SeriesDetail>;
+  ) as SelectInputProp<PostDetail>;
+
+  const seriesInput = addInputs.find(
+    (i) => i.id === "series",
+  ) as SelectInputProp<PostDetail>;
 
   if (siteInput && topicInput) {
     siteInput.setFunction = setSite;
     siteInput.dataFunction = getSiteSelect;
+
+    topicInput.setFunction = setTopic;
     topicInput.dataFunction = getTopicSelect;
     topicInput.parentValue = site;
+
+    seriesInput.dataFunction = getSeriesSelect;
+    seriesInput.parentValue = topic;
   }
 
   return (
@@ -49,7 +61,7 @@ export default function AddSeriesPage({}: {}) {
       <div className="w-full grid grid-cols-3 p-3 text-black sm:w-4/5 sm:px-1">
         <div className="flex justify-start items-end col-span-1">
           <Button
-            onClick={() => router.push("/series")}
+            onClick={() => router.push("/post")}
             text="<"
             type="ROUNDED"
           />
@@ -64,9 +76,9 @@ export default function AddSeriesPage({}: {}) {
         onSubmit={onSubmit}
         className="grid grid-cols-12 gap-2 w-full p-3 pt-1 sm:w-4/5 sm:col-span-4"
       >
-        {addInputs.map((i) => {
-          return <InputFactory input={i} />;
-        })}
+        {addInputs.map((i, idx) => (
+          <InputFactory key={`input-post-${idx}`} input={i} />
+        ))}
         <div className="col-span-full grid grid-cols-12 my-3">
           <Button
             isSubmit={true}

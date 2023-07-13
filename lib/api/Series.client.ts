@@ -17,3 +17,9 @@ export async function patchSeries(payload: JsonObject) {
   const res = await request(`${API_URLS.priSeries}`, METHODS.PATCH, payload);
   return response(res);
 }
+
+export async function getSeriesSelect(key?: string) {
+  if (!key) return;
+  const res = await request(API_URLS.priSeries + "/list/" + key, METHODS.GET);
+  return response(res);
+}

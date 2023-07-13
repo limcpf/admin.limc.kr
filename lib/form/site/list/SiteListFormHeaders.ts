@@ -5,7 +5,7 @@ const SiteListFormHeaders: ListFormHeaderProp<Site>[] = [
   {
     name: "이름",
     id: "name",
-    col: 6,
+    col: 3,
     type: "TEXT",
     align: "center",
     option: {

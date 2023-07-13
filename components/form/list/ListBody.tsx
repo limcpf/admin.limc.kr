@@ -53,20 +53,20 @@ export default function ListBody<T>({
   };
 
   return (
-    <div
-      className={`col-span-full grid grid-cols-12 py-3 ${divideRowBg(index)}`}
-    >
+    <div className={`flex py-3 ${divideRowBg(index)}`}>
       {headers.map((h: ListFormHeaderProp<T>, i2: number) => {
+        const width = h.col * 90;
         const key = `cell-body-${index}-${i2}`;
         const cn = `
                     text-${h.align}
-                    col-span-${h.col}
                     ${h.align === "left" && "pl-1"} 
                     ${h.type === "DATE" && "text-xs text-gray-500"}
+                    truncate
                 `;
+        const style = { width: `${width}px` };
 
         return (
-          <div key={key} className={cn}>
+          <div key={key} className={cn} style={style}>
             {getListFormBody(h, data)}
           </div>
         );
