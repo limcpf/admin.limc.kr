@@ -1,10 +1,10 @@
-import { ListFormHeaderProp } from "@/types/form";
-import Series from "@/lib/classes/domain/series/Series.class";
+import {ListFormHeaderProp} from "@/types/form";
+import Post from "@/lib/classes/domain/post/Post.class";
 
-const SeriesListFormHeaders: ListFormHeaderProp<Series>[] = [
+const PostListHeaders: ListFormHeaderProp<Post>[] = [
   {
-    name: "아이디",
-    id: "id",
+    name: "발행여부",
+    id: "isPublished",
     col: 1,
     type: "TEXT",
     align: "center",
@@ -18,12 +18,12 @@ const SeriesListFormHeaders: ListFormHeaderProp<Series>[] = [
     option: {
       href: "/site/",
       hrefId: "site",
-    },
+    }
   },
   {
     name: "주제",
     id: "topicName",
-    col: 3,
+    col: 2,
     type: "TEXT",
     align: "center",
     option: {
@@ -32,23 +32,41 @@ const SeriesListFormHeaders: ListFormHeaderProp<Series>[] = [
     },
   },
   {
-    name: "제목",
-    id: "title",
-    col: 6,
+    name: "시리즈",
+    id: "seriesName",
+    col: 2,
     type: "TEXT",
     align: "center",
     option: {
       href: "/series/",
+      hrefId: "series",
+    },
+  },
+  {
+    name: "제목",
+    id: "title",
+    col: 4,
+    type: "TEXT",
+    align: "center",
+    option: {
+      href: "/post/",
       hrefId: "id",
     },
   },
   {
     name: "생성일시",
     id: "createdAt",
-    col: 1,
+    col: 2,
+    type: "DATE",
+    align: "center",
+  },
+  {
+    name: "수정일시",
+    id: "updatedAt",
+    col: 2,
     type: "DATE",
     align: "center",
   },
 ];
 
-export default SeriesListFormHeaders;
+export default PostListHeaders;

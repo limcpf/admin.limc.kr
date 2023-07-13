@@ -1,11 +1,11 @@
 import Site from "@/lib/classes/domain/site/Site.class";
-import { ListFormHeaderProp } from "@/types/form";
+import {ListFormHeaderProp} from "@/types/form";
 
 const SiteListFormHeaders: ListFormHeaderProp<Site>[] = [
   {
     name: "이름",
     id: "name",
-    col: 6,
+    col: 3,
     type: "TEXT",
     align: "center",
     option: {

@@ -1,9 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
-import {
-  SelectDataList,
-  SelectInputProp,
-} from "@/components/form/input/interface/SelectInput.interface";
-import { DetailSelectData } from "@/types/form";
+import React, {useEffect, useRef, useState} from "react";
+import {SelectDataList, SelectInputProp,} from "@/components/form/input/interface/SelectInput.interface";
+import {DetailSelectData} from "@/types/form";
 
 export default function SelectInput<T>({
   input,
@@ -27,6 +24,7 @@ export default function SelectInput<T>({
     "block w-full p-2.5 bg-gray-50 border border-gray-300 text-gray-900 text-xs sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ";
 
   useEffect(() => {
+    if(setFunction) setFunction(v)
     if (isChild) {
       if (!parentValue) {
         setData([]);

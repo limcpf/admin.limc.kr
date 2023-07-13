@@ -1,12 +1,33 @@
-import { SeriesDetail } from "@/lib/classes/domain/series/SeriesDetail.class";
-import { SelectInputProp } from "@/components/form/input/interface/SelectInput.interface";
-import { TextInputProp } from "@/components/form/input/interface/TextInput.interface";
-import { NumberInputProp } from "@/components/form/input/interface/NumberInput.interface";
+import {SeriesDetail} from "@/lib/classes/domain/series/SeriesDetail.class";
+import {SelectInputProp} from "@/components/form/input/interface/SelectInput.interface";
+import {TextInputProp} from "@/components/form/input/interface/TextInput.interface";
+import {NumberInputProp} from "@/components/form/input/interface/NumberInput.interface";
 
 type Inputs<T> = SelectInputProp<T> | TextInputProp<T> | NumberInputProp<T>;
 export const SeriesUpdateDetailInput: Inputs<SeriesDetail>[] = [
   {
+    id: "id",
+    cols: 6,
+    value: "",
+    type: "TEXT",
+    option: {
+      disabled: true,
+      required: true,
+    },
+  },
+  {
+    id: "postCnt",
+    name: "글 개수",
+    cols: 6,
+    value: "",
+    type: "TEXT",
+    option: {
+      disabled: true,
+    },
+  },
+  {
     id: "site",
+    name: "사이트",
     cols: 6,
     value: "",
     type: "SELECT",
@@ -27,25 +48,6 @@ export const SeriesUpdateDetailInput: Inputs<SeriesDetail>[] = [
     },
   },
   {
-    id: "id",
-    cols: 6,
-    value: "",
-    type: "TEXT",
-    option: {
-      disabled: true,
-      required: true,
-    },
-  },
-  {
-    id: "postCnt",
-    cols: 6,
-    value: "",
-    type: "TEXT",
-    option: {
-      disabled: true,
-    },
-  },
-  {
     id: "title",
     name: "제목",
     cols: 12,
@@ -59,6 +61,7 @@ export const SeriesUpdateDetailInput: Inputs<SeriesDetail>[] = [
   },
   {
     id: "createdAt",
+    name:"생성일시",
     cols: 6,
     value: "",
     type: "DATE",
@@ -68,6 +71,7 @@ export const SeriesUpdateDetailInput: Inputs<SeriesDetail>[] = [
   },
   {
     id: "updatedAt",
+    name: "수정일시",
     cols: 6,
     value: "",
     type: "DATE",

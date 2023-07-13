@@ -1,10 +1,10 @@
 import ListPageWrapper from "@/components/form/list/page/ListPageWrapper";
-import { getSeriesList } from "@/lib/api/Series.server";
-import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
-import { Page } from "@/types/form";
+import {getSeriesList} from "@/lib/api/Series.server";
+import {Params} from "next/dist/shared/lib/router/utils/route-matcher";
+import {Page} from "@/types/form";
 import Series from "@/lib/classes/domain/series/Series.class";
-import SeriesListFormHeaders from "@/lib/form/series/list/SeriesListFormHeaders";
-import SeriesListFormOption from "@/lib/form/series/list/SeriesListFormOption";
+import SeriesListHeaders from "@/lib/form/series/list/SeriesListHeaders";
+import SeriesListOption from "@/lib/form/series/list/SeriesListOption";
 
 export default async function RootSeries({
   searchParams,
@@ -16,8 +16,8 @@ export default async function RootSeries({
   return (
     <ListPageWrapper
       data={data}
-      header={SeriesListFormHeaders}
-      option={SeriesListFormOption}
+      header={SeriesListHeaders}
+      option={SeriesListOption}
     />
   );
 }

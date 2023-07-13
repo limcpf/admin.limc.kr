@@ -1,7 +1,7 @@
-import Topic from "@/lib/classes/domain/topic/Topic.class";
 import {ListFormHeaderProp} from "@/types/form";
+import Series from "@/lib/classes/domain/series/Series.class";
 
-const TopicListFormHeaders: ListFormHeaderProp<Topic>[] = [
+const SeriesListHeaders: ListFormHeaderProp<Series>[] = [
   {
     name: "아이디",
     id: "id",
@@ -12,7 +12,7 @@ const TopicListFormHeaders: ListFormHeaderProp<Topic>[] = [
   {
     name: "사이트",
     id: "site",
-    col: 2,
+    col: 1,
     type: "TEXT",
     align: "center",
     option: {
@@ -21,30 +21,34 @@ const TopicListFormHeaders: ListFormHeaderProp<Topic>[] = [
     },
   },
   {
-    name: "이름",
-    id: "name",
+    name: "주제",
+    id: "topicName",
     col: 3,
     type: "TEXT",
     align: "center",
     option: {
       href: "/topic/",
+      hrefId: "topic",
+    },
+  },
+  {
+    name: "제목",
+    id: "title",
+    col: 6,
+    type: "TEXT",
+    align: "center",
+    option: {
+      href: "/series/",
       hrefId: "id",
     },
   },
   {
     name: "생성일시",
     id: "createdAt",
-    col: 3,
-    type: "DATE",
-    align: "center",
-  },
-  {
-    name: "수정일시",
-    id: "updatedAt",
-    col: 3,
+    col: 1,
     type: "DATE",
     align: "center",
   },
 ];
 
-export default TopicListFormHeaders;
+export default SeriesListHeaders;

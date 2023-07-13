@@ -1,8 +1,14 @@
+import {SelectInputProp} from "@/components/form/input/interface/SelectInput.interface";
+import {TextInputProp} from "@/components/form/input/interface/TextInput.interface";
+import {NumberInputProp} from "@/components/form/input/interface/NumberInput.interface";
+import {TextAreaInput} from "@/components/form/input/interface/TextAreaInput.interface";
+
 /** ListForm */
 export type ListFormHeaderOption<T> = {
   disabled?: boolean;
   href?: string;
   hrefId?: keyof T;
+  dynamicValue?: Function<string>
 };
 
 export type ListFormHeaderProp<T> = {
@@ -93,3 +99,5 @@ export type DetailFormProp<T> = {
 export interface JsonObject {
   [key: string]: string;
 }
+
+export type Inputs<T> = SelectInputProp<T> | TextInputProp<T> | NumberInputProp<T> | TextAreaInput<T>;

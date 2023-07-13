@@ -1,12 +1,14 @@
-import { Input } from "@/components/form/input/interface/Input.interface";
+import {Input} from "@/components/form/input/interface/Input.interface";
 import TextInput from "@/components/form/input/TextInput";
-import { TextInputProp } from "@/components/form/input/interface/TextInput.interface";
+import {TextInputProp} from "@/components/form/input/interface/TextInput.interface";
 import DateInput from "@/components/form/input/DateInput";
 import NumberInput from "@/components/form/input/NumberInput";
-import { NumberInputProp } from "@/components/form/input/interface/NumberInput.interface";
+import {NumberInputProp} from "@/components/form/input/interface/NumberInput.interface";
 import SelectInput from "@/components/form/input/SelectInput";
-import { SelectInputProp } from "@/components/form/input/interface/SelectInput.interface";
+import {SelectInputProp} from "@/components/form/input/interface/SelectInput.interface";
 import React from "react";
+import TextAreaInput from "@/components/form/input/TextAreaInput";
+import {TextAreaInputProp} from "@/components/form/input/interface/TextAreaInput.interface";
 
 export default function InputFactory<T>({
   input,
@@ -21,6 +23,7 @@ export default function InputFactory<T>({
     DATE: <DateInput input={input as TextInputProp<T>} />,
     NUMBER: <NumberInput input={input as NumberInputProp<T>} />,
     SELECT: <></>,
+    TEXTAREA: <TextAreaInput input={input as TextAreaInputProp<T>} />,
   };
   if (input.type === "SELECT") {
     const i = input as SelectInputProp<T>;
