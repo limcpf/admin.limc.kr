@@ -1,4 +1,4 @@
-import {ListFormOption} from "@/types/form";
+import { ListFormOption } from "@/types/form";
 
 const PostListOption: ListFormOption = {
   addPageHref: "/post/add",

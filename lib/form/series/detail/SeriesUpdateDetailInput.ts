@@ -1,7 +1,7 @@
-import {SeriesDetail} from "@/lib/classes/domain/series/SeriesDetail.class";
-import {SelectInputProp} from "@/components/form/input/interface/SelectInput.interface";
-import {TextInputProp} from "@/components/form/input/interface/TextInput.interface";
-import {NumberInputProp} from "@/components/form/input/interface/NumberInput.interface";
+import { SeriesDetail } from "@/lib/classes/domain/series/SeriesDetail.class";
+import { SelectInputProp } from "@/components/form/input/interface/SelectInput.interface";
+import { TextInputProp } from "@/components/form/input/interface/TextInput.interface";
+import { NumberInputProp } from "@/components/form/input/interface/NumberInput.interface";
 
 type Inputs<T> = SelectInputProp<T> | TextInputProp<T> | NumberInputProp<T>;
 export const SeriesUpdateDetailInput: Inputs<SeriesDetail>[] = [
@@ -61,7 +61,7 @@ export const SeriesUpdateDetailInput: Inputs<SeriesDetail>[] = [
   },
   {
     id: "createdAt",
-    name:"생성일시",
+    name: "생성일시",
     cols: 6,
     value: "",
     type: "DATE",

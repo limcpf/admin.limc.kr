@@ -11,16 +11,16 @@ export default class Post extends BaseTime {
   isPublished: string;
 
   constructor(
-      id: string,
-      site: string,
-      topic: string,
-      topicName: string,
-      title: string,
-      isPublished: string,
-      createdAt?: string,
-      updatedAt?: string,
-      series?: string,
-      seriesName?: string
+    id: string,
+    site: string,
+    topic: string,
+    topicName: string,
+    title: string,
+    isPublished: string,
+    createdAt?: string,
+    updatedAt?: string,
+    series?: string,
+    seriesName?: string,
   ) {
     super(createdAt, updatedAt);
     this.id = id;
@@ -34,6 +34,6 @@ export default class Post extends BaseTime {
   }
 
   hasSeries() {
-    return !!this.series
+    return !!this.series;
   }
 }

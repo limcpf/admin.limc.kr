@@ -1,15 +1,15 @@
 "use client";
 
 import Button from "@/components/btn/Button";
-import React, {FormEventHandler, useState} from "react";
-import {useRouter} from "next/navigation";
-import {getJsonObjectFromForm} from "@/lib/util/Submit.util";
-import {getSiteSelect} from "@/lib/api/Site.client";
-import {getTopicSelect} from "@/lib/api/Topic.client";
-import {addSeries} from "@/lib/api/Series.client";
-import {SeriesAddDetailInput} from "@/lib/form/series/detail/SeriesAddDetailInput";
-import {SelectInputProp} from "@/components/form/input/interface/SelectInput.interface";
-import {SeriesDetail} from "@/lib/classes/domain/series/SeriesDetail.class";
+import React, { FormEventHandler, useState } from "react";
+import { useRouter } from "next/navigation";
+import { getJsonObjectFromForm } from "@/lib/util/Submit.util";
+import { getSiteSelect } from "@/lib/api/Site.client";
+import { getTopicSelect } from "@/lib/api/Topic.client";
+import { addSeries } from "@/lib/api/Series.client";
+import { SeriesAddDetailInput } from "@/lib/form/series/detail/SeriesAddDetailInput";
+import { SelectInputProp } from "@/components/form/input/interface/SelectInput.interface";
+import { SeriesDetail } from "@/lib/classes/domain/series/SeriesDetail.class";
 import InputFactory from "@/components/form/input/InputFactory";
 
 export default function AddSeriesPage({}: {}) {
@@ -69,11 +69,11 @@ export default function AddSeriesPage({}: {}) {
         })}
         <div className="col-span-full grid grid-cols-12 my-3">
           <Button
-              isSubmit={true}
-              className="col-start-6 col-end-8"
-              text="저장"
-              type="ROUNDED"
-              onClick={() => {}}
+            isSubmit={true}
+            className="col-start-6 col-end-8"
+            text="저장"
+            type="ROUNDED"
+            onClick={() => {}}
           />
         </div>
       </form>

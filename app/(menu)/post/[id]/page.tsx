@@ -1,7 +1,7 @@
 import React from "react";
-import {request} from "@/lib/api/request";
-import {API_URLS} from "@/lib/constants/API";
-import {METHODS} from "@/lib/constants/InputType";
+import { request } from "@/lib/api/request";
+import { API_URLS } from "@/lib/constants/API";
+import { METHODS } from "@/lib/constants/InputType";
 import PostDetail from "@/lib/classes/domain/post/PostDetail.class";
 import PostDetailPage from "@/app/(menu)/post/[id]/detail";
 

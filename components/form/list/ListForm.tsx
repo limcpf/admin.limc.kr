@@ -1,8 +1,8 @@
 "use client";
 
 import React from "react";
-import {ListFormHeaderProp, ListFormProp} from "@/types/form";
-import {List} from "@/lib/classes/form/List.class";
+import { ListFormHeaderProp, ListFormProp } from "@/types/form";
+import { List } from "@/lib/classes/form/List.class";
 import ListHeader from "@/components/form/list/ListHeader";
 import ListFormHeader from "@/components/form/list/ListFormHeader";
 import ListBody from "@/components/form/list/ListBody";
@@ -23,19 +23,24 @@ export default function ListForm<T>({
       <ListHeader list={list} option={form.option} />
       {/* Header */}
       <div className="overflow-auto whitespace-nowrap">
-      <div className="w-fit flex text-black">
-        {headers.map((h: ListFormHeaderProp<T>, i: number) => (
-          <ListFormHeader key={`lh-${i}`} index={i} col={h.col} text={h.name} />
-        ))}
+        <div className="w-fit flex text-black">
+          {headers.map((h: ListFormHeaderProp<T>, i: number) => (
+            <ListFormHeader
+              key={`lh-${i}`}
+              index={i}
+              col={h.col}
+              text={h.name}
+            />
+          ))}
+        </div>
+        {/*Body*/}
+        <div className={"text-black w-fit"}>
+          {contents.map((c: T, i: number) => (
+            <ListBody key={`lb-${i}`} headers={headers} data={c} index={i} />
+          ))}
+        </div>
+        {/*  Footer */}
       </div>
-       {/*Body*/}
-      <div className={"text-black w-fit"}>
-        {contents.map((c: T, i: number) => (
-          <ListBody key={`lb-${i}`} headers={headers} data={c} index={i} />
-        ))}
-      </div>
-    {/*  Footer */}
-    </div>
       <div className={classes}>
         <ListFormFooter list={list} />
       </div>

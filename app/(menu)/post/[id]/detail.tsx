@@ -1,18 +1,18 @@
 "use client";
 import Button from "@/components/btn/Button";
-import React, {FormEventHandler, useState} from "react";
-import {getTopicSelect} from "@/lib/api/Topic.client";
-import {getJsonObjectFromForm} from "@/lib/util/Submit.util";
-import {useRouter} from "next/navigation";
-import {SelectInputProp} from "@/components/form/input/interface/SelectInput.interface";
-import {getSiteSelect} from "@/lib/api/Site.client";
+import React, { FormEventHandler, useState } from "react";
+import { getTopicSelect } from "@/lib/api/Topic.client";
+import { getJsonObjectFromForm } from "@/lib/util/Submit.util";
+import { useRouter } from "next/navigation";
+import { SelectInputProp } from "@/components/form/input/interface/SelectInput.interface";
+import { getSiteSelect } from "@/lib/api/Site.client";
 import InputFactory from "@/components/form/input/InputFactory";
 import PostDetail from "@/lib/classes/domain/post/PostDetail.class";
-import {PostUpdateDetailInput} from "@/lib/form/post/detail/PostUpdateDetailInput";
-import {getSeriesSelect} from "@/lib/api/Series.client";
-import {patchPost} from "@/lib/api/Post.client";
-import {Inputs} from "@/types/form";
-import {SeriesDetail} from "@/lib/classes/domain/series/SeriesDetail.class";
+import { PostUpdateDetailInput } from "@/lib/form/post/detail/PostUpdateDetailInput";
+import { getSeriesSelect } from "@/lib/api/Series.client";
+import { patchPost } from "@/lib/api/Post.client";
+import { Inputs } from "@/types/form";
+import { SeriesDetail } from "@/lib/classes/domain/series/SeriesDetail.class";
 
 export default function PostDetailPage({
   post,
@@ -26,13 +26,13 @@ export default function PostDetailPage({
     evt.preventDefault();
     const obj = getJsonObjectFromForm(evt);
     patchPost(obj)
-    .then((d) => {
-      alert("생성 완료");
-      router.push(`/post/${d.id}`);
-    })
-    .catch((e: Error) => {
-      alert(e.message);
-    });
+      .then((d) => {
+        alert("생성 완료");
+        router.push(`/post/${d.id}`);
+      })
+      .catch((e: Error) => {
+        alert(e.message);
+      });
   };
 
   const detailInputs = PostUpdateDetailInput as Inputs<PostDetail>[];
@@ -57,11 +57,9 @@ export default function PostDetailPage({
           console.log("z2");
           select.dataFunction = getSeriesSelect;
           select.parentValue = topic;
-
       }
     }
   });
-
 
   return (
     <div className="flex items-center justify-center flex-col">

@@ -1,4 +1,4 @@
-import {ListFormHeaderProp} from "@/types/form";
+import { ListFormHeaderProp } from "@/types/form";
 import Series from "@/lib/classes/domain/series/Series.class";
 
 const SeriesListHeaders: ListFormHeaderProp<Series>[] = [

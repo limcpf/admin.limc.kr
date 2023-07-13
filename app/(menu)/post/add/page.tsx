@@ -1,17 +1,17 @@
 "use client";
 
 import Button from "@/components/btn/Button";
-import React, {FormEventHandler, useState} from "react";
-import {useRouter} from "next/navigation";
-import {getJsonObjectFromForm} from "@/lib/util/Submit.util";
-import {getSiteSelect} from "@/lib/api/Site.client";
-import {getTopicSelect} from "@/lib/api/Topic.client";
-import {SelectInputProp} from "@/components/form/input/interface/SelectInput.interface";
+import React, { FormEventHandler, useState } from "react";
+import { useRouter } from "next/navigation";
+import { getJsonObjectFromForm } from "@/lib/util/Submit.util";
+import { getSiteSelect } from "@/lib/api/Site.client";
+import { getTopicSelect } from "@/lib/api/Topic.client";
+import { SelectInputProp } from "@/components/form/input/interface/SelectInput.interface";
 import InputFactory from "@/components/form/input/InputFactory";
-import {PostAddDetailInput} from "@/lib/form/post/detail/PostAddDetailInput";
+import { PostAddDetailInput } from "@/lib/form/post/detail/PostAddDetailInput";
 import PostDetail from "@/lib/classes/domain/post/PostDetail.class";
-import {addPost} from "@/lib/api/Post.client";
-import {getSeriesSelect} from "@/lib/api/Series.client";
+import { addPost } from "@/lib/api/Post.client";
+import { getSeriesSelect } from "@/lib/api/Series.client";
 
 export default function AddPostPage({}: {}) {
   const [site, setSite] = useState<string>("");
@@ -40,7 +40,7 @@ export default function AddPostPage({}: {}) {
   ) as SelectInputProp<PostDetail>;
 
   const seriesInput = addInputs.find(
-      (i) => i.id === "series",
+    (i) => i.id === "series",
   ) as SelectInputProp<PostDetail>;
 
   if (siteInput && topicInput) {
@@ -76,14 +76,16 @@ export default function AddPostPage({}: {}) {
         onSubmit={onSubmit}
         className="grid grid-cols-12 gap-2 w-full p-3 pt-1 sm:w-4/5 sm:col-span-4"
       >
-        {addInputs.map((i, idx) => <InputFactory key={`input-post-${idx}`} input={i} />)}
+        {addInputs.map((i, idx) => (
+          <InputFactory key={`input-post-${idx}`} input={i} />
+        ))}
         <div className="col-span-full grid grid-cols-12 my-3">
           <Button
-              isSubmit={true}
-              className="col-start-6 col-end-8"
-              text="저장"
-              type="ROUNDED"
-              onClick={() => {}}
+            isSubmit={true}
+            className="col-start-6 col-end-8"
+            text="저장"
+            type="ROUNDED"
+            onClick={() => {}}
           />
         </div>
       </form>

@@ -1,5 +1,5 @@
 import React from "react";
-import {ListFormHeaderProp} from "@/types/form";
+import { ListFormHeaderProp } from "@/types/form";
 import Link from "next/link";
 import DateUtil from "@/lib/util/Date.util";
 
@@ -53,9 +53,7 @@ export default function ListBody<T>({
   };
 
   return (
-    <div
-      className={`flex py-3 ${divideRowBg(index)}`}
-    >
+    <div className={`flex py-3 ${divideRowBg(index)}`}>
       {headers.map((h: ListFormHeaderProp<T>, i2: number) => {
         const width = h.col * 90;
         const key = `cell-body-${index}-${i2}`;
@@ -65,7 +63,7 @@ export default function ListBody<T>({
                     ${h.type === "DATE" && "text-xs text-gray-500"}
                     truncate
                 `;
-        const style = {width: `${width}px`}
+        const style = { width: `${width}px` };
 
         return (
           <div key={key} className={cn} style={style}>

@@ -1,4 +1,4 @@
-import {Inputs} from "@/types/form";
+import { Inputs } from "@/types/form";
 import PostDetail from "@/lib/classes/domain/post/PostDetail.class";
 
 export const PostUpdateDetailInput: Inputs<PostDetail>[] = [
@@ -65,12 +65,12 @@ export const PostUpdateDetailInput: Inputs<PostDetail>[] = [
     type: "TEXTAREA",
     option: {
       rows: 20,
-      required: true
-    }
+      required: true,
+    },
   },
   {
     id: "createdAt",
-    name:"생성일시",
+    name: "생성일시",
     cols: 6,
     value: "",
     type: "DATE",

@@ -1,7 +1,7 @@
-import {JsonObject} from "@/types/form";
-import {request, response} from "@/lib/api/request";
-import {API_URLS} from "@/lib/constants/API";
-import {METHODS} from "@/lib/constants/InputType";
+import { JsonObject } from "@/types/form";
+import { request, response } from "@/lib/api/request";
+import { API_URLS } from "@/lib/constants/API";
+import { METHODS } from "@/lib/constants/InputType";
 
 export async function addSeries(payload: JsonObject) {
   const res = await request(`${API_URLS.priSeries}`, METHODS.POST, payload);
@@ -20,9 +20,6 @@ export async function patchSeries(payload: JsonObject) {
 
 export async function getSeriesSelect(key?: string) {
   if (!key) return;
-  const res = await request(
-      API_URLS.priSeries + "/list/" + key,
-      METHODS.GET,
-  );
+  const res = await request(API_URLS.priSeries + "/list/" + key, METHODS.GET);
   return response(res);
 }

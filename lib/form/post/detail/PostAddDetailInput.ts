@@ -1,5 +1,5 @@
 import PostDetail from "@/lib/classes/domain/post/PostDetail.class";
-import {Inputs} from "@/types/form";
+import { Inputs } from "@/types/form";
 
 export const PostAddDetailInput: Inputs<PostDetail>[] = [
   {
@@ -55,7 +55,7 @@ export const PostAddDetailInput: Inputs<PostDetail>[] = [
     type: "TEXTAREA",
     option: {
       rows: 20,
-      required: true
-    }
-  }
+      required: true,
+    },
+  },
 ];

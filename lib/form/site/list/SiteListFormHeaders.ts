@@ -1,5 +1,5 @@
 import Site from "@/lib/classes/domain/site/Site.class";
-import {ListFormHeaderProp} from "@/types/form";
+import { ListFormHeaderProp } from "@/types/form";
 
 const SiteListFormHeaders: ListFormHeaderProp<Site>[] = [
   {

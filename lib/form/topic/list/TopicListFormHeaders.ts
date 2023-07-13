@@ -1,5 +1,5 @@
 import Topic from "@/lib/classes/domain/topic/Topic.class";
-import {ListFormHeaderProp} from "@/types/form";
+import { ListFormHeaderProp } from "@/types/form";
 
 const TopicListFormHeaders: ListFormHeaderProp<Topic>[] = [
   {

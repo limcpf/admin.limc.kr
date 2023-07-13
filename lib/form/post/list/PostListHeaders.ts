@@ -1,4 +1,4 @@
-import {ListFormHeaderProp} from "@/types/form";
+import { ListFormHeaderProp } from "@/types/form";
 import Post from "@/lib/classes/domain/post/Post.class";
 
 const PostListHeaders: ListFormHeaderProp<Post>[] = [
@@ -18,7 +18,7 @@ const PostListHeaders: ListFormHeaderProp<Post>[] = [
     option: {
       href: "/site/",
       hrefId: "site",
-    }
+    },
   },
   {
     name: "주제",

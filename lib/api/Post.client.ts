@@ -1,7 +1,7 @@
-import {JsonObject} from "@/types/form";
-import {request, response} from "@/lib/api/request";
-import {API_URLS} from "@/lib/constants/API";
-import {METHODS} from "@/lib/constants/InputType";
+import { JsonObject } from "@/types/form";
+import { request, response } from "@/lib/api/request";
+import { API_URLS } from "@/lib/constants/API";
+import { METHODS } from "@/lib/constants/InputType";
 
 export async function addPost(payload: JsonObject) {
   const res = await request(`${API_URLS.priPost}`, METHODS.POST, payload);

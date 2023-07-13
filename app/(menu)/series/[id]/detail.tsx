@@ -1,15 +1,15 @@
 "use client";
 import Button from "@/components/btn/Button";
-import React, {FormEventHandler, useState} from "react";
-import {SeriesDetail} from "@/lib/classes/domain/series/SeriesDetail.class";
-import {getTopicSelect} from "@/lib/api/Topic.client";
-import {getJsonObjectFromForm} from "@/lib/util/Submit.util";
-import {patchSeries} from "@/lib/api/Series.client";
-import {useRouter} from "next/navigation";
-import {SelectInputProp} from "@/components/form/input/interface/SelectInput.interface";
-import {getSiteSelect} from "@/lib/api/Site.client";
+import React, { FormEventHandler, useState } from "react";
+import { SeriesDetail } from "@/lib/classes/domain/series/SeriesDetail.class";
+import { getTopicSelect } from "@/lib/api/Topic.client";
+import { getJsonObjectFromForm } from "@/lib/util/Submit.util";
+import { patchSeries } from "@/lib/api/Series.client";
+import { useRouter } from "next/navigation";
+import { SelectInputProp } from "@/components/form/input/interface/SelectInput.interface";
+import { getSiteSelect } from "@/lib/api/Site.client";
 import InputFactory from "@/components/form/input/InputFactory";
-import {SeriesUpdateDetailInput} from "@/lib/form/series/detail/SeriesUpdateDetailInput";
+import { SeriesUpdateDetailInput } from "@/lib/form/series/detail/SeriesUpdateDetailInput";
 
 export default function SeriesDetailPage({
   series,
